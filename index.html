@@ -139,18 +139,17 @@ a{color:inherit;text-underline-offset:.2em}
 @media (max-width:419px){.btn{padding-inline:1rem;font-size:clamp(.9375rem,4.1vw,1.0625rem)}}
 
 @media (min-width:900px){
-  /* Desktop: a foto ocupa o fundo inteiro da hero, com a Kelly à direita.
-     Véu creme só atrás do texto (até --texto-fim, onde a coluna do texto acaba) para dar contraste;
-     depois ele some e a foto aparece limpa. Na base, a foto se dissolve no creme da seção seguinte. */
-  .hero{--texto-fim:calc(max(var(--gutter),(100% - 72rem) / 2 + var(--gutter)) + min(34rem,(min(100%,72rem) - 2 * var(--gutter)) * .48));
-    display:flex;align-items:center;min-height:min(82vh,44rem);padding-block:5rem 6rem;overflow:hidden}
+  /* Desktop: a foto ocupa o fundo inteiro da hero, sem véu nem degradê, com a Kelly à direita e o texto por cima.
+     A altura da hero segue a proporção da foto (1671x941), limitada à altura da tela, para ela aparecer quase inteira.
+     Legibilidade: só um halo creme suave nas letras, sem cobrir a imagem. */
+  .hero{display:flex;align-items:center;min-height:min(calc(100vw * 941 / 1671),calc(100vh - 4.5rem));padding-block:5rem 6rem;overflow:hidden}
   .hero__grid{width:100%;margin-top:0}
-  .hero__texto{max-width:min(34rem,48%)}
+  .hero__texto{max-width:min(34rem,48%);text-shadow:0 0 .3rem rgba(244,237,227,.95),0 0 1rem rgba(244,237,227,.7)}
+  .hero__corpo,.hero__texto .cta-nota,.hero__oab{color:var(--ink)}
+  .hero__texto .btn{text-shadow:none}
   .hero__foto{position:absolute;z-index:-1;inset:0;height:auto}
   .hero__foto img{object-position:var(--foto-pos-desktop)}
-  .hero__foto::after{background:
-    linear-gradient(90deg,rgba(244,237,227,.93) 0,rgba(244,237,227,.88) calc(var(--texto-fim) - 3rem),rgba(244,237,227,0) calc(var(--texto-fim) + 10rem)),
-    linear-gradient(0deg,var(--bg-cream) 0,rgba(244,237,227,0) 16%)}
+  .hero__foto::after{content:none}
 }
 
 /* Barra fixa "Pedir contato" (celular) */
