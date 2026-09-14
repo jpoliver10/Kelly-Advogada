@@ -127,7 +127,8 @@ Se mudar o título ou o corpo do hero, confira em 360×640 se o botão "Pedir co
 
 Foto da própria Kelly, tirada da arte enviada pelo escritório (724×532). No recorte `img/kelly-hero.webp`, o logo embutido foi apagado (o logo já está no cabeçalho), o creme do fundo foi acertado para `#F4EDE3` e a borda esquerda foi cortada em x=200.
 - **Celular:** faixa no topo da hero, com o título subindo sobre o fim esmaecido da foto.
-- **Desktop:** a foto fica do lado direito, encostada na base da hero, e a borda esquerda some no creme (máscara em degradê).
+- **Desktop:** a foto ocupa a metade direita da grade, alinhada ao conteúdo e não à borda da tela, com a Kelly perto do centro. As laterais e a base se dissolvem no creme (máscara em degradê), sem corte reto.
+- **Entrada:** ao carregar, a foto "assenta" devagar (escala e leve subida, 1,6s). Só usa transform, então não atrasa o LCP, e fica desligada para quem pede menos movimento.
 
 **Resolução:** a arte tem só 532px de altura e, no desktop, aparece ampliada cerca de 1,4×. Para ficar nítida, peça o arquivo original em alta (ideal: 1600px de altura ou mais). Depois, rode o mesmo recorte e troque o arquivo.
 
@@ -198,10 +199,10 @@ Chrome via DevTools Protocol, servidor local, celular 360×640, rede **Slow 4G d
 
 | Métrica | Rodada 1 (fria) | Rodada 2 | Rodada 3 | Meta |
 |---|---|---|---|---|
-| LCP (elemento: foto da hero) | 2,06s | 1,75s | 1,67s | < 2,0s |
-| CLS | 0 | 0 | 0 | < 0,05 |
+| LCP (elemento: foto da hero) | 2,00s | 1,65s | 1,68s | < 2,0s |
+| CLS | 0 | 0,0008 | 0 | < 0,05 |
 
-A primeira rodada, com conexões frias, passa 60ms da meta. O peso total da primeira tela é de ~105KB. Em produção, some o TTFB do servidor (~100 a 300ms numa CDN).
+A primeira rodada, com conexões frias, fica no limite da meta (entre 2,00s e 2,06s nas medições). O peso total da primeira tela é de ~105KB. Em produção, some o TTFB do servidor (~100 a 300ms numa CDN).
 
 **Peso transferido no celular:** ~95KB no total, somando HTML 10,1KB, CSS 4,1KB, JS 5,8KB, fontes ~57KB, foto 15KB e o CSS do Google Fonts ~5KB (valores compactados).
 - **Com o Meta Pixel ligado:** +~90KB, baixados depois do carregamento.
