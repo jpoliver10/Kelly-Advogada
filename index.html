@@ -110,6 +110,7 @@ a{color:inherit;text-underline-offset:.2em}
 .hero__foto img{width:100%;height:100%;object-fit:cover;object-position:var(--foto-pos-mobile);transform-origin:50% 100%;animation:kf-foto 1.6s var(--ease-out) both}
 .hero__foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(244,237,227,0) 58%,var(--bg-cream) 100%)}
 .hero__grid{position:relative;margin-top:-2.5rem}
+.hero__corte{display:none}
 /* Entrada da foto: ela "assenta" devagar. Só transform, para não atrasar o LCP. */
 @keyframes kf-foto{from{transform:scale(1.07) translateY(2.5%)}}
 @media (prefers-reduced-motion:reduce){.hero__foto img{animation:none}}
@@ -150,6 +151,10 @@ a{color:inherit;text-underline-offset:.2em}
   .hero__foto{position:absolute;z-index:-1;inset:0;height:auto}
   .hero__foto img{object-position:var(--foto-pos-desktop)}
   .hero__foto::after{content:none}
+  /* Base inclinada: o bege sobe da direita para a esquerda, com uma faixa dourada de ~6px entre ele e a foto. */
+  .hero__corte{display:block;position:absolute;left:0;bottom:-1px;width:100%;height:clamp(2.75rem,5vw,5rem);pointer-events:none}
+  .hero__corte-ouro{fill:var(--gold)}
+  .hero__corte-creme{fill:var(--bg-cream)}
 }
 
 /* Barra fixa "Pedir contato" (celular) */
@@ -215,6 +220,11 @@ a{color:inherit;text-underline-offset:.2em}
         </div>
       </div>
     </div>
+    <!-- Corte inclinado da base (desktop): faixa dourada entre a foto e o bege da seção seguinte. -->
+    <svg class="hero__corte" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <polygon class="hero__corte-ouro" points="0,0 100,8.9 100,10 0,10"/>
+      <polygon class="hero__corte-creme" points="0,1.1 100,10 0,10"/>
+    </svg>
   </section>
 
   <!-- ===================== 2. RECONHECIMENTO + CARTA ===================== -->

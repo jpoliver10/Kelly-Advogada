@@ -131,7 +131,7 @@ Se mudar o título ou o corpo do hero, confira em 360×640 se o botão "Pedir co
 
 Arte enviada pelo escritório (1671×941): a Kelly num campo de lavoura, com trabalhadores desfocados ao fundo. Ela ocupa o fundo inteiro da hero (`img/kelly-fundo-*.webp`).
 - **Celular:** faixa no topo da hero, com o título subindo sobre o fim esmaecido da foto.
-- **Desktop:** a foto cobre o fundo inteiro da hero, sem véu nem degradê, com a Kelly à direita e o texto por cima. A altura da hero segue a proporção da foto, limitada à altura da tela, para ela aparecer quase inteira. Para a leitura, o texto tem só um halo creme justo às letras, e o corpo, a nota e a linha da OAB usam a cor do título.
+- **Desktop:** a foto cobre o fundo inteiro da hero, sem véu nem degradê, com a Kelly à direita e o texto por cima. A altura da hero segue a proporção da foto, limitada à altura da tela, para ela aparecer quase inteira. Para a leitura, o texto tem só um halo creme justo às letras, e o corpo, a nota e a linha da OAB usam a cor do título. A base da hero é um corte inclinado (SVG `.hero__corte`), com uma faixa dourada `#A8894F` entre a foto e o bege da seção seguinte. No celular o corte não aparece, porque lá a foto já termina esmaecendo.
 - **Entrada:** ao carregar, a foto "assenta" devagar (escala e leve subida, 1,6s). Só usa transform, então não atrasa o LCP, e fica desligada para quem pede menos movimento.
 
 **Resolução:** a arte tem 1671px de largura. Em telas de até ~1700px ela aparece sem ampliação; acima disso, fica um pouco suave.
