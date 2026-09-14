@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 
 <!-- Foto da hero: baixa antes de tudo (é o maior elemento da primeira tela). Celular recebe só o recorte do rosto. -->
-<link rel="preload" as="image" href="img/kelly-fundo-m.webp" type="image/webp" media="(max-width: 899px)" fetchpriority="high">
+<link rel="preload" as="image" imagesrcset="img/kelly-fundo-m.webp 720w, img/kelly-fundo-m-1080.webp 1080w, img/kelly-fundo-m-1440.webp 1440w" imagesizes="100vw" type="image/webp" media="(max-width: 899px)" fetchpriority="high">
 <link rel="preload" as="image" imagesrcset="img/kelly-fundo-1280.webp 1280w, img/kelly-fundo-2000.webp 2000w" imagesizes="100vw" type="image/webp" media="(min-width: 900px)" fetchpriority="high">
 
 <!-- Fontes: carregadas sem bloquear a renderização. Fallbacks com métrica ajustada no CSS abaixo evitam salto de layout. -->
@@ -74,6 +74,8 @@ h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:400;color:var(--ink);l
 p,ul,ol,dl,dd,figure{margin:0}
 img,svg{display:block;max-width:100%}
 a{color:inherit;text-underline-offset:.2em}
+/* Toque no celular: realce dourado discreto no lugar do azul padrão do Android */
+a,button,summary{-webkit-tap-highlight-color:rgba(168,137,79,.18)}
 ::selection{background:rgba(168,137,79,.3);color:var(--ink)}
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
 .wrap{max-width:72rem;margin-inline:auto;padding-inline:var(--gutter)}
@@ -85,7 +87,7 @@ a{color:inherit;text-underline-offset:.2em}
 .topo{position:absolute;top:0;left:0;right:0;z-index:30;background:transparent;border-bottom:1px solid transparent;
   transition:background-color .3s ease,border-color .3s ease}
 .topo__barra{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:3.5rem;padding-block:.5rem}
-.marca{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--ink)}
+.marca{display:inline-flex;align-items:center;gap:.65rem;min-height:2.75rem;text-decoration:none;color:var(--ink)}
 .marca__kf{width:2.25rem;height:2.25rem;color:var(--gold-deep);flex:none}
 .marca__nome{font:400 1.0625rem/1.1 var(--serif)}
 .marca__nome small{display:block;font:400 .75rem/1.4 var(--sans);color:var(--ink);letter-spacing:.01em}
@@ -179,9 +181,9 @@ a{color:inherit;text-underline-offset:.2em}
 @media (min-width:900px){.fixo{display:none}}
 @media (prefers-reduced-motion:reduce){.fixo,.fixo.is-on{transition:none}}
 </style>
-<link rel="stylesheet" href="styles.css?v=4" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="styles.css?v=5" media="print" onload="this.media='all'">
 <noscript>
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,72,400,100;1,72,400,100&family=Poppins:wght@400;500&display=swap&subset=latin-ext">
 </noscript>
 <script src="main.js?v=2" defer></script>
@@ -215,12 +217,13 @@ a{color:inherit;text-underline-offset:.2em}
 
   <!-- ===================== 1. HERO  (OFERTA: textos marcados mudam por oferta) ===================== -->
   <section class="hero" id="inicio" aria-labelledby="titulo-hero">
-    <!-- Fundo da hero: a Kelly no campo (img/kelly-fundo-*.webp). O celular recebe só o recorte do rosto (kelly-fundo-m.webp).
+    <!-- Fundo da hero: a Kelly no campo (img/kelly-fundo-*.webp). O celular recebe só o recorte do rosto
+         (kelly-fundo-m*.webp: 720, 1080 e 1440 de largura, o navegador escolhe pela densidade da tela).
          Versões anteriores continuam em img/: kelly-hero.webp (arte com fundo creme) e hero-*.webp (mãos, Pexels).
          Enquadramento: --foto-pos-* no CSS. -->
     <div class="hero__foto">
       <picture>
-        <source media="(max-width: 899px)" srcset="img/kelly-fundo-m.webp" width="720" height="400">
+        <source media="(max-width: 899px)" srcset="img/kelly-fundo-m.webp 720w, img/kelly-fundo-m-1080.webp 1080w, img/kelly-fundo-m-1440.webp 1440w" sizes="100vw" width="720" height="400">
         <img src="img/kelly-fundo-1280.webp" srcset="img/kelly-fundo-1280.webp 1280w, img/kelly-fundo-2000.webp 2000w" sizes="100vw"
              width="2000" height="1126" alt="Kelly Ferreira, advogada, num campo de lavoura" fetchpriority="high" decoding="async">
       </picture>

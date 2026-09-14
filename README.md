@@ -12,7 +12,9 @@ integracao/google-sheets.gs  script do Google que grava os cadastros na planilha
 politica-de-privacidade.html rascunho LGPD (revisar antes de publicar)
 img/kelly-fundo-2000.webp    fundo da hero, desktop grande (2000×1126, 81KB)
 img/kelly-fundo-1280.webp    fundo da hero, desktop (1280×721, 40KB)
-img/kelly-fundo-m.webp       recorte do rosto para o celular (720×400, 11KB)
+img/kelly-fundo-m.webp       recorte do rosto para o celular (720×400, 11KB; telas 2x)
+img/kelly-fundo-m-1080.webp  mesmo recorte em 1080×600 (20KB)
+img/kelly-fundo-m-1440.webp  mesmo recorte em 1440×800 (26KB; telas 2,6x e 3x e tablets)
 img/kelly.webp               retrato da seção "Quem vai acompanhar o seu caso" (800×1000, 37KB)
 img/kelly-hero.webp          versão anterior da hero (arte com fundo creme), fora de uso
 img/hero-*.webp              primeira hero (mãos, Pexels), fora de uso
@@ -137,7 +139,7 @@ Arte enviada pelo escritório (2728×1536): a Kelly num campo de lavoura ao nasc
 **Resolução:** a arte original tem 2728px de largura; o site usa versões de 1280 e 2000px (o navegador escolhe pela largura da tela) e fica nítido em qualquer monitor comum.
 
 Para trocar:
-1. Gere `kelly-fundo-2000.webp` e `kelly-fundo-1280.webp` (a arte inteira) e `kelly-fundo-m.webp` (recorte 720×400 do rosto), e atualize `width`/`height` no `<img>`.
+1. Gere `kelly-fundo-2000.webp` e `kelly-fundo-1280.webp` (a arte inteira) e `kelly-fundo-m.webp`, `kelly-fundo-m-1080.webp` e `kelly-fundo-m-1440.webp` (o mesmo recorte do rosto em 720, 1080 e 1440 de largura; o navegador escolhe pela densidade da tela), e atualize `width`/`height` no `<img>`.
 2. Ajuste `--foto-pos-mobile` e `--foto-pos-desktop` no CSS do `<head>`.
 3. Confira em 360×640 se o botão da hero continua na primeira tela.
 
@@ -210,6 +212,8 @@ Chrome via DevTools Protocol, servidor local, celular 360×640, rede **Slow 4G d
 | CLS | 0 | 0 | 0 | < 0,05 |
 
 A primeira rodada, com conexões frias, passa um pouco da meta (entre 2,09s e 2,24s nas medições com a foto de fundo da hero); as seguintes ficam em ~1,6s. O peso total da primeira tela no celular é de ~92KB. Em produção, some o TTFB do servidor (~100 a 300ms numa CDN).
+
+**Varredura mobile (14/09/2026), em 360×640 e 390×844:** sem rolagem lateral, sem erros de JS e sem elemento vazando da tela. Todos os botões e links fora de texto corrido têm pelo menos 44px de altura, e os campos do formulário usam 16px (o iPhone não dá zoom ao tocar). A foto da hero no celular vem em 720, 1080 ou 1440 de largura conforme a densidade da tela: um celular 2x baixa 11KB, e um de 3x baixa 26KB, sem ficar borrado. O LCP continuou entre 1,7s e 2,3s.
 
 **Peso transferido no celular:** ~95KB no total, somando HTML 10,1KB, CSS 4,1KB, JS 5,8KB, fontes ~57KB, foto 15KB e o CSS do Google Fonts ~5KB (valores compactados).
 - **Com o Meta Pixel ligado:** +~90KB, baixados depois do carregamento.
