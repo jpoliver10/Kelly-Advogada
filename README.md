@@ -10,9 +10,8 @@ styles.css                   estilos abaixo da dobra
 main.js                      formulário -> planilha, UTMs, Meta Pixel, barra fixa, carta, Lenis, FAQ
 integracao/google-sheets.gs  script do Google que grava os cadastros na planilha
 politica-de-privacidade.html rascunho LGPD (revisar antes de publicar)
-img/hero-1920.webp           foto de fundo da hero, desktop grande (86KB)
-img/hero-1280.webp           foto de fundo da hero, desktop (52KB)
-img/hero-m.webp              recorte das mãos para o celular (15KB)
+img/kelly-hero.webp          foto da Kelly na hero, celular e desktop (524×532, 25KB)
+img/hero-*.webp              foto anterior das mãos (Pexels), fora de uso; pode apagar se a foto da Kelly ficar
 img/favicon.svg              favicon provisório (monograma KF)
 img/apple-touch-icon.png     ícone iOS provisório
 img/og-image.png             imagem de compartilhamento 1200×630
@@ -120,18 +119,24 @@ Toda a copy está em `index.html`. Os trechos que mudam por oferta estão marcad
 - Corpo: `A Kelly explica quem tem direito, como funciona a perícia e o que fazer se o INSS entender diferente do seu médico.`
 - Carta: "Benefício" = `aposentadoria por incapacidade permanente`.
 
-Se mudar o título ou o corpo do hero, confira em 360×640 se o botão "Pedir contato da Kelly" continua na primeira tela (hoje ele termina em 428px).
+Se mudar o título ou o corpo do hero, confira em 360×640 se o botão "Pedir contato da Kelly" continua na primeira tela (hoje ele termina em 568px).
 
 ---
 
-## Foto da hero (provisória)
+## Foto da hero
 
-"Close-up Photo of an Elderly Couple Holding Hands", de **T Leish** no Pexels (ID 6975092), sob a Pexels License: uso comercial livre, sem atribuição obrigatória (o crédito aqui é cortesia). Sem rosto, para não parecer cliente real, o que seria depoimento implícito.
+Foto da própria Kelly, tirada da arte enviada pelo escritório (724×532). No recorte `img/kelly-hero.webp`, o logo embutido foi apagado (o logo já está no cabeçalho), o creme do fundo foi acertado para `#F4EDE3` e a borda esquerda foi cortada em x=200.
+- **Celular:** faixa no topo da hero, com o título subindo sobre o fim esmaecido da foto.
+- **Desktop:** a foto fica do lado direito, encostada na base da hero, e a borda esquerda some no creme (máscara em degradê).
+
+**Resolução:** a arte tem só 532px de altura e, no desktop, aparece ampliada cerca de 1,4×. Para ficar nítida, peça o arquivo original em alta (ideal: 1600px de altura ou mais). Depois, rode o mesmo recorte e troque o arquivo.
 
 Para trocar:
-1. Gere `hero-1920.webp` e `hero-1280.webp` na proporção 3:2, e um recorte do assunto em `hero-m.webp` (720×480).
+1. Gere um novo `kelly-hero.webp` (fundo creme `#F4EDE3`, sem logo) e atualize `width`/`height` no `<img>`.
 2. Ajuste `--foto-pos-mobile` e `--foto-pos-desktop` no CSS do `<head>`.
-3. Confira a legibilidade do título no celular: o véu creme é mais leve só atrás dele.
+3. Confira em 360×640 se o botão da hero continua na primeira tela.
+
+A foto anterior (mãos de um casal idoso, T Leish no Pexels, ID 6975092, Pexels License) continua em `img/hero-*.webp`, caso queira voltar.
 
 ---
 
@@ -152,7 +157,7 @@ Para testar localmente: `python -m http.server 5500` dentro da pasta.
 - [ ] Nome completo e número da OAB corretos no hero, na apresentação e no rodapé
 - [ ] Nenhuma frase promete, garante ou sugere resultado
 - [ ] Nenhum termo mercantil: promoção, desconto, oferta, vagas, condição especial, consulta grátis
-- [ ] Sem depoimentos, prints de conversa, valores recebidos ou casos identificáveis; a foto da hero não mostra rosto
+- [ ] Sem depoimentos, prints de conversa, valores recebidos ou casos identificáveis; a foto da hero é da própria Kelly e as pessoas ao fundo não são identificáveis
 - [ ] Sem superlativos e sem "especialista"; "atuação exclusiva em Direito Previdenciário" é verdadeiro
 - [ ] "Pedir contato não obriga você a contratar nada" e a resposta "Quanto custa?" batem com a forma real de trabalho
 - [ ] Prazo de 30 dias para recurso administrativo e regras de BPC e perícia corretos na redação atual
@@ -182,21 +187,21 @@ Para testar localmente: `python -m http.server 5500` dentro da pasta.
   - `#FFFFFF` branco, no painel do formulário, na carta e na faixa dos passos.
 - **Contraste:** o dourado claro dá só 2,8:1 sobre o creme, por isso nunca aparece em texto.
 - **Tipos:** Fraunces 400 e itálico (títulos, falas, numerais) e Poppins 400/500 (texto, formulário, botões). São 4 arquivos de fonte.
-- **Estrutura:** hero com texto e botão à esquerda sobre o véu creme, e a foto das mãos à direita. Depois disso, todas as seções seguem a mesma grade, com o título na coluna esquerda (1/3) e o conteúdo na direita (2/3). O formulário fecha a página, no fechamento.
+- **Estrutura:** hero com texto e botão à esquerda e a foto da Kelly à direita (no celular, a foto vem por cima do título). Depois disso, todas as seções seguem a mesma grade, com o título na coluna esquerda (1/3) e o conteúdo na direita (2/3). O formulário fecha a página, no fechamento.
 - **Assinatura:** a carta de decisão do INSS com o motivo circulado e traduzido, logo depois das falas de reconhecimento.
 
 ---
 
 ## Métricas medidas
 
-Chrome via DevTools Protocol, servidor local, celular 360×640, rede **Slow 4G do Lighthouse** (150ms RTT, 1,6 Mbps) e **CPU 4x mais lenta**. Três rodadas sem cache, com o formulário no fim da página:
+Chrome via DevTools Protocol, servidor local, celular 360×640, rede **Slow 4G do Lighthouse** (150ms RTT, 1,6 Mbps) e **CPU 4x mais lenta**. Três rodadas sem cache, com a foto da Kelly na hero:
 
 | Métrica | Rodada 1 (fria) | Rodada 2 | Rodada 3 | Meta |
 |---|---|---|---|---|
-| LCP (elemento: foto da hero) | 2,00s | 1,70s | 1,65s | < 2,0s |
-| CLS | 0 | 0 | 0,001 | < 0,05 |
+| LCP (elemento: foto da hero) | 2,06s | 1,75s | 1,67s | < 2,0s |
+| CLS | 0 | 0 | 0 | < 0,05 |
 
-A primeira rodada, com conexões frias, fica no limite da meta. Em produção, some o TTFB do servidor (~100 a 300ms numa CDN).
+A primeira rodada, com conexões frias, passa 60ms da meta. O peso total da primeira tela é de ~105KB. Em produção, some o TTFB do servidor (~100 a 300ms numa CDN).
 
 **Peso transferido no celular:** ~95KB no total, somando HTML 10,1KB, CSS 4,1KB, JS 5,8KB, fontes ~57KB, foto 15KB e o CSS do Google Fonts ~5KB (valores compactados).
 - **Com o Meta Pixel ligado:** +~90KB, baixados depois do carregamento.
