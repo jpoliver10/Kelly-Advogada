@@ -194,6 +194,7 @@ Sempre que mudar o `styles.css`, aumente o número em `styles.css?v=2` (no `inde
   - `#FFFFFF` branco, no painel do formulário, na carta e na faixa dos passos.
 - **Contraste:** o dourado claro dá só 2,8:1 sobre o creme, por isso nunca aparece em texto.
 - **Tipos:** Fraunces 400 e itálico (títulos, falas, numerais) e Poppins 400/500 (texto, formulário, botões). São 4 arquivos de fonte.
+- **Cabeçalho:** transparente sobre o céu da foto da hero. No desktop fica fixo e, ao rolar, ganha fundo creme translúcido (`.is-solido`, via `main.js`). A partir de 1024px mostra os atalhos "No que ajuda", "Como funciona", "Quem é a Kelly" e "Dúvidas" (em Fraunces, tinta sobre o céu, sublinhado dourado no hover). No celular, só a marca e "Pedir contato", por cima da faixa da foto. As âncoras param abaixo do cabeçalho pelo `scroll-padding-top` do CSS, que o Lenis também respeita.
 - **Estrutura:** hero com texto e botão à esquerda e a foto da Kelly à direita (no celular, a foto vem por cima do título). Depois disso, todas as seções seguem a mesma grade, com o título na coluna esquerda (1/3) e o conteúdo na direita (2/3). O formulário fecha a página, no fechamento.
 - **Assinatura:** a carta de decisão do INSS com o motivo circulado e traduzido, logo depois das falas de reconhecimento.
 

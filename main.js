@@ -8,7 +8,8 @@
    6. Barra fixa "Pedir contato" no celular
    7. Grifo da carta ilustrativa
    8. Rolagem suave (Lenis) no desktop
-   9. FAQ com abertura suave, uma resposta por vez
+   9. Cabeçalho transparente sobre a foto; ganha fundo ao rolar
+   10. FAQ com abertura suave, uma resposta por vez
    Configuração em window.KF, no <head> do index.html.
    ========================================================= */
 (function () {
@@ -103,7 +104,7 @@
       if (window.lenis) {
         // Desktop com rolagem suave: o caminho é longo, então foca só quando chegar.
         e.stopPropagation(); // evita que o Lenis dispare uma segunda rolagem pelo mesmo link
-        window.lenis.scrollTo(alvoCadastro, { offset: -88, onComplete: focar });
+        window.lenis.scrollTo(alvoCadastro, { onComplete: focar });  // posição vem do scroll-padding/scroll-margin do CSS
       } else {
         alvoCadastro.scrollIntoView({ block: 'start' });
         focar();
@@ -326,7 +327,7 @@
       window.lenis = new window.Lenis({
         lerp: 0.1,                  // quanto menor, mais "macio" (0.1 é o padrão da biblioteca)
         autoRaf: true,
-        anchors: { offset: -88 },   // links #âncora param abaixo do cabeçalho fixo
+        anchors: true,              // links #âncora: o Lenis já respeita o scroll-padding-top do CSS (abaixo do cabeçalho fixo)
         stopInertiaOnNavigate: true
       });
     };
@@ -338,7 +339,20 @@
   var onReduce = function (e) { if (e.matches && window.lenis) { window.lenis.destroy(); window.lenis = null; } };
   if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', onReduce);
 
-  /* ---------- 9. FAQ com abertura suave, uma resposta por vez ---------- */
+  /* ---------- 9. Cabeçalho transparente sobre a foto; ganha fundo ao rolar ---------- */
+  // No topo da página o cabeçalho deixa o céu da foto aparecer. Assim que a pessoa rola,
+  // ele recebe .is-solido (fundo creme translúcido no desktop, onde fica fixo).
+  var topo = document.querySelector('.topo');
+  if (topo) {
+    var topoPendente = false;
+    var atualizaTopo = function () { topoPendente = false; topo.classList.toggle('is-solido', window.scrollY > 24); };
+    window.addEventListener('scroll', function () {
+      if (!topoPendente) { topoPendente = true; window.requestAnimationFrame(atualizaTopo); }
+    }, { passive: true });
+    atualizaTopo();
+  }
+
+  /* ---------- 10. FAQ com abertura suave, uma resposta por vez ---------- */
   // Mantém o <details> nativo (teclado, leitor de tela e Ctrl+F continuam funcionando)
   // e só anima a altura. Com "reduzir movimento", abre e fecha na hora, como o padrão.
   var FAQ_MS = 380;
