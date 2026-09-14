@@ -127,7 +127,7 @@ Se mudar o título ou o corpo do hero, confira em 360×640 se o botão "Pedir co
 
 Foto da própria Kelly, tirada da arte enviada pelo escritório (724×532). No recorte `img/kelly-hero.webp`, o logo embutido foi apagado (o logo já está no cabeçalho), o creme do fundo foi acertado para `#F4EDE3` e a borda esquerda foi cortada em x=120 (sobra campo dos dois lados dela).
 - **Celular:** faixa no topo da hero, com o título subindo sobre o fim esmaecido da foto.
-- **Desktop:** a foto ocupa a metade direita da grade, alinhada ao conteúdo e não à borda da tela, com a Kelly perto do centro. A caixa tem a proporção da foto e fica apoiada na base da hero, então nada é cortado. Só as pontas das laterais, o topo e a base se dissolvem no creme (máscara em degradê), e os braços dela ficam inteiros.
+- **Desktop:** a foto tem a altura inteira da hero (do topo à base) e começa logo depois do texto, recuando 14% da própria largura. Assim, só o campo esmaecido da esquerda passa por trás da ponta do texto e a foto aparece inteira nas laterais. Só as laterais e a base se dissolvem no creme (máscara em degradê); o topo fica como está. Abaixo de ~1200px de largura, o braço direito dela encosta na borda da tela.
 - **Entrada:** ao carregar, a foto "assenta" devagar (escala e leve subida, 1,6s). Só usa transform, então não atrasa o LCP, e fica desligada para quem pede menos movimento.
 
 **Resolução:** a arte tem só 532px de altura e, no desktop, aparece ampliada cerca de 1,4×. Para ficar nítida, peça o arquivo original em alta (ideal: 1600px de altura ou mais). Depois, rode o mesmo recorte e troque o arquivo.
