@@ -37,7 +37,7 @@ Procure por `[PREENCHER]` em `index.html` e `politica-de-privacidade.html`.
 | **Domínio** | Localize e substitua `SEU-DOMINIO.com.br` em `index.html` (canonical, og:url, og:image). |
 | **Meta Pixel ID** | `window.KF.pixelId`. Vazio = Pixel desligado. |
 | **WhatsApp do rodapé** | `window.KF.whatsapp` e os `href` do rodapé (localizar e substituir `5581991093631`). Confirme se o número atende ligação; se for só WhatsApp, apague a linha "Ligar para". |
-| **Foto da Kelly** | Feito: `img/kelly.webp` (800×1000, 37KB) na seção "Quem vai acompanhar o seu caso". Para trocar, salve outro retrato 4:5 com o mesmo nome. |
+| **Foto da Kelly** | Feito: `img/kelly.webp` (800×1000, 37KB) na seção "Quem vai acompanhar o seu caso", com a base em corte inclinado e faixa dourada, como a divisória da hero. Para trocar, salve outro retrato 4:5 com o mesmo nome. |
 | **Logo** | O monograma KF é provisório. Troque o `<symbol id="i-kf">` no topo do `<body>` e `img/favicon.svg`. |
 | **Política de privacidade** | Revise, preencha data e prazo de guarda e apague o aviso de rascunho. |
 
@@ -131,7 +131,7 @@ Se mudar o título ou o corpo do hero, confira em 360×640 se o botão "Pedir co
 
 Arte enviada pelo escritório (2728×1536): a Kelly num campo de lavoura ao nascer do sol, com trabalhadores desfocados ao fundo. Ela ocupa o fundo inteiro da hero (`img/kelly-fundo-*.webp`).
 - **Celular:** faixa no topo da hero, com o título subindo sobre o fim esmaecido da foto.
-- **Desktop:** a foto cobre o fundo inteiro da hero, sem véu nem degradê, com a Kelly à direita e o texto por cima. A altura da hero segue a proporção da foto, limitada à altura da tela, para ela aparecer quase inteira. Para a leitura, o texto tem só um halo creme justo às letras, e o corpo do texto usa a cor do título. A hero termina no botão "Pedir contato da Kelly" (sem nota nem linha da OAB, que ficam na apresentação e no rodapé). A base da hero é um corte inclinado (SVG `.hero__corte`), com uma faixa dourada `#A8894F` entre a foto e o bege da seção seguinte. No celular o corte não aparece, porque lá a foto já termina esmaecendo.
+- **Desktop:** a foto cobre o fundo inteiro da hero, sem véu nem degradê, com a Kelly à direita e o texto por cima. A altura da hero segue a proporção da foto, limitada à altura da tela, para ela aparecer quase inteira. O texto fica direto sobre a foto, sem véu e sem sombra; o corpo do texto usa a cor do título. A hero termina no botão "Pedir contato da Kelly" (sem nota nem linha da OAB, que ficam na apresentação e no rodapé). A base da hero é um corte inclinado (SVG `.hero__corte`), com uma faixa dourada `#A8894F` entre a foto e o bege da seção seguinte. No celular o corte não aparece, porque lá a foto já termina esmaecendo.
 - **Entrada:** ao carregar, a foto "assenta" devagar (escala e leve subida, 1,6s). Só usa transform, então não atrasa o LCP, e fica desligada para quem pede menos movimento.
 
 **Resolução:** a arte original tem 2728px de largura; o site usa versões de 1280 e 2000px (o navegador escolhe pela largura da tela) e fica nítido em qualquer monitor comum.

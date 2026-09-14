@@ -158,12 +158,11 @@ a{color:inherit;text-underline-offset:.2em}
 @media (min-width:900px){
   /* Desktop: a foto ocupa o fundo inteiro da hero, sem véu nem degradê, com a Kelly à direita e o texto por cima.
      A altura da hero segue a proporção da foto (2000x1126), limitada à altura da tela, para ela aparecer quase inteira.
-     Legibilidade: só um halo creme suave nas letras, sem cobrir a imagem. */
+     Texto direto sobre a foto, sem véu e sem sombra; o corpo usa a cor do título para ganhar contraste. */
   .hero{display:flex;align-items:center;min-height:min(calc(100vw * 1126 / 2000),100vh);padding-block:9.5rem 6rem;overflow:hidden}
   .hero__grid{width:100%;margin-top:0}
-  .hero__texto{max-width:min(34rem,48%);text-shadow:0 0 .3rem rgba(244,237,227,.95),0 0 1rem rgba(244,237,227,.7)}
+  .hero__texto{max-width:min(34rem,48%)}
   .hero__corpo{color:var(--ink)}
-  .hero__texto .btn{text-shadow:none}
   .hero__foto{position:absolute;z-index:-1;inset:0;height:auto}
   .hero__foto img{object-position:var(--foto-pos-desktop)}
   .hero__foto::after{content:none}
@@ -180,9 +179,9 @@ a{color:inherit;text-underline-offset:.2em}
 @media (min-width:900px){.fixo{display:none}}
 @media (prefers-reduced-motion:reduce){.fixo,.fixo.is-on{transition:none}}
 </style>
-<link rel="stylesheet" href="styles.css?v=2" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="styles.css?v=3" media="print" onload="this.media='all'">
 <noscript>
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,72,400,100;1,72,400,100&family=Poppins:wght@400;500&display=swap&subset=latin-ext">
 </noscript>
 <script src="main.js?v=2" defer></script>
@@ -373,8 +372,11 @@ a{color:inherit;text-underline-offset:.2em}
   <section class="secao sobre" id="quem-e" aria-labelledby="titulo-sobre">
     <div class="wrap grade">
       <div class="grade__cabeca">
-        <img class="sobre__foto" src="img/kelly.webp" width="800" height="1000" loading="lazy" decoding="async"
-             alt="Kelly Ferreira, advogada, sentada em seu escritório, de camisa branca">
+        <!-- Base em corte inclinado com faixa dourada, como a divisória da hero -->
+        <div class="sobre__retrato">
+          <img class="sobre__foto" src="img/kelly.webp" width="800" height="1000" loading="lazy" decoding="async"
+               alt="Kelly Ferreira, advogada, sentada em seu escritório, de camisa branca">
+        </div>
 
       </div>
       <div class="grade__corpo sobre__texto">
