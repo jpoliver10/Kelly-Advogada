@@ -37,7 +37,7 @@ Procure por `[PREENCHER]` em `index.html` e `politica-de-privacidade.html`.
 | **Domínio** | Localize e substitua `SEU-DOMINIO.com.br` em `index.html` (canonical, og:url, og:image). |
 | **Meta Pixel ID** | `window.KF.pixelId`. Vazio = Pixel desligado. |
 | **WhatsApp do rodapé** | `window.KF.whatsapp` e os `href` do rodapé (localizar e substituir `5581991093631`). Confirme se o número atende ligação; se for só WhatsApp, apague a linha "Ligar para". |
-| **Foto da Kelly** | Feito: `img/kelly.webp` (800×1000, 37KB) na seção "Quem vai acompanhar o seu caso", com a base em corte inclinado e faixa dourada, como a divisória da hero. Para trocar, salve outro retrato 4:5 com o mesmo nome. |
+| **Foto da Kelly** | Feito: `img/kelly.webp` (800×1000, 37KB) na seção "Quem vai acompanhar o seu caso", com uma sombra sólida dourada (#A8894F, deslocada para baixo e para a direita, sem desfoque). Para trocar, salve outro retrato 4:5 com o mesmo nome. |
 | **Logo** | O monograma KF é provisório. Troque o `<symbol id="i-kf">` no topo do `<body>` e `img/favicon.svg`. |
 | **Política de privacidade** | Revise, preencha data e prazo de guarda e apague o aviso de rascunho. |
 
