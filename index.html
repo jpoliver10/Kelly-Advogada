@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Benefício do INSS negado ou cortado? | Kelly Ferreira Advocacia</title>
+<meta name="description" content="Seu benefício foi negado ou cortado pelo INSS? Deixe seu contato: a advogada Kelly Ferreira explica, em palavras simples, os caminhos para o seu caso.">
+<meta name="theme-color" content="#F4EDE3">
+<!-- [PREENCHER] troque SEU-DOMINIO.com.br pelo domínio real (localizar e substituir no arquivo todo) -->
+<link rel="canonical" href="https://SEU-DOMINIO.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Kelly Ferreira Advocacia">
+<meta property="og:title" content="Benefício do INSS negado ou cortado?">
+<meta property="og:description" content="Deixe seu contato: a advogada Kelly Ferreira explica, em palavras simples, os caminhos para o seu caso.">
+<meta property="og:url" content="https://SEU-DOMINIO.com.br/">
+<meta property="og:image" content="https://SEU-DOMINIO.com.br/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kelly Ferreira Advocacia. Benefício do INSS negado ou cortado?">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+<!-- Foto da hero: baixa antes de tudo (é o maior elemento da primeira tela). Celular recebe só o recorte das mãos. -->
+<link rel="preload" as="image" href="img/hero-m.webp" type="image/webp" media="(max-width: 899px)" fetchpriority="high">
+<link rel="preload" as="image" imagesrcset="img/hero-1280.webp 1280w, img/hero-1920.webp 1920w" imagesizes="100vw" type="image/webp" media="(min-width: 900px)" fetchpriority="high">
+
+<!-- Fontes: carregadas sem bloquear a renderização. Fallbacks com métrica ajustada no CSS abaixo evitam salto de layout. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,72,400,100;1,72,400,100&family=Poppins:wght@400;500&display=swap&subset=latin-ext" media="print" onload="this.media='all'">
+
+<!--
+  ============================================================
+  CONFIGURAÇÃO. Tudo o que muda por campanha fica aqui.
+  whatsapp:    só números, com 55 + DDD (link do rodapé)
+  pixelId:     ID do Meta Pixel. Vazio = Pixel desligado.
+  oferta:      rótulo que vai no evento Lead e na planilha
+  planilhaUrl: URL do App da Web do Google Apps Script (ver README e integracao/google-sheets.gs).
+               Vazio = o formulário abre o WhatsApp da Kelly com os dados, para não perder cadastro.
+  ============================================================
+-->
+<script>
+  window.KF = {
+    whatsapp: '5581991093631',
+    pixelId: '',
+    oferta: 'beneficio-negado-cortado',
+    planilhaUrl: ''
+  };
+  document.documentElement.className += ' js';
+  // Se o main.js não carregar, a página volta ao estado estático (grifo da carta já desenhado).
+  window.addEventListener('load', function () {
+    setTimeout(function () { if (!window.KF_READY) document.documentElement.classList.remove('js'); }, 1500);
+  });
+</script>
+
+<style>
+/* ===== CSS crítico: tokens, base, cabeçalho, hero e barra fixa. O resto está em styles.css ===== */
+@font-face{font-family:"Fraunces fb";src:local("Georgia"),local("Noto Serif"),local("DejaVu Serif");size-adjust:97%;ascent-override:100%;descent-override:26%;line-gap-override:0%}
+@font-face{font-family:"Poppins fb";src:local("Arial"),local("Roboto"),local("Helvetica");size-adjust:112%;ascent-override:94%;descent-override:31%;line-gap-override:0%}
+:root{
+  --bg-cream:#F4EDE3;--ink:#2F2E2B;--gold:#A8894F;--gold-deep:#8C6F3C;--body:#4A4845;--surface:#FFFFFF;
+  --hair:rgba(168,137,79,.38);
+  --serif:"Fraunces","Fraunces fb",Georgia,"Times New Roman",serif;
+  --sans:"Poppins","Poppins fb",Arial,Roboto,system-ui,sans-serif;
+  --gutter:clamp(1.25rem,5vw,3rem);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg-cream);color:var(--body);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:400;color:var(--ink);line-height:1.1;letter-spacing:-.012em;text-wrap:balance}
+p,ul,ol,dl,dd,figure{margin:0}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-underline-offset:.2em}
+::selection{background:rgba(168,137,79,.3);color:var(--ink)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
+.wrap{max-width:72rem;margin-inline:auto;padding-inline:var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Cabeçalho: marca e o mesmo "Pedir contato" da página.
+   Celular: rola com a página (a barra fixa de baixo cuida do botão). Desktop: fica fixo no topo. */
+.topo{position:relative;z-index:30;background:var(--bg-cream);border-bottom:1px solid var(--hair)}
+.topo__barra{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:3.5rem;padding-block:.5rem}
+.marca{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--ink)}
+.marca__kf{width:2.25rem;height:2.25rem;color:var(--gold);flex:none}
+.marca__nome{font:400 1.0625rem/1.1 var(--serif)}
+.marca__nome small{display:block;font:400 .75rem/1.4 var(--sans);color:var(--body);letter-spacing:.01em}
+.topo__cta{display:inline-flex;align-items:center;min-height:2.75rem;padding:.5rem 1rem;border:1px solid var(--ink);border-radius:6px;color:var(--ink);font:500 .9375rem/1.2 var(--sans);text-decoration:none;white-space:nowrap;transition:background-color .15s,color .15s}
+.topo__cta:hover,.topo__cta:active{background:var(--ink);color:var(--bg-cream)}
+.topo__cta-longo{display:none}
+@media (min-width:900px){
+  html{scroll-padding-top:5.5rem}
+  .topo{position:sticky;top:0}
+  .topo__barra{min-height:4.5rem;gap:2rem}
+  .marca__kf{width:2.75rem;height:2.75rem}
+  .marca__nome{font-size:1.1875rem}
+  .topo__cta{padding-inline:1.25rem}
+  .topo__cta-curto{display:none}
+  .topo__cta-longo{display:inline}
+}
+
+/* Hero */
+.hero{position:relative;isolation:isolate;padding-block:1.25rem 3rem}
+/* Foto ilustrativa de fundo (Pexels 6975092, T Leish). Véu creme garante contraste do texto.
+   Celular: a foto aparece atrás do título e some até o corpo do texto. */
+.hero{--foto-pos-mobile:50% 30%;--foto-pos-desktop:50% 42%}
+.hero__foto{position:absolute;z-index:-1;inset:0 0 auto 0;height:21rem;overflow:hidden;pointer-events:none}
+.hero__foto img{width:100%;height:100%;object-fit:cover;object-position:var(--foto-pos-mobile)}
+.hero__foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(244,237,227,.45) 0,rgba(244,237,227,.55) 6.25rem,rgba(244,237,227,.91) 8.25rem,rgba(244,237,227,.96) 12rem,var(--bg-cream) 100%)}
+.hero h1{font-size:clamp(2.125rem,1.35rem + 3.4vw,4.25rem);line-height:1.06;max-width:15ch}
+.hero h1 em{font-style:italic}
+.hero__sub{margin-top:.5rem;font:500 1.5rem/1.3 var(--sans);letter-spacing:-.01em;color:var(--gold-deep);max-width:22ch}
+.hero__corpo{margin-top:.5rem;max-width:33rem}
+.hero__acao{margin-top:1.25rem}
+.hero__oab{margin-top:.35rem;font-size:.8125rem;line-height:1.5}
+@media (min-width:600px){
+  .hero{padding-block:2.5rem 4.5rem}
+  .hero__sub{margin-top:1.1rem}
+  .hero__corpo{margin-top:1rem}
+  .hero__acao{margin-top:1.75rem}
+  .hero__oab{font-size:.875rem}
+}
+
+/* Botão principal */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:3.5rem;padding:.95rem 1.6rem;border:0;border-radius:6px;background:var(--ink);color:var(--bg-cream);font:500 1.0625rem/1.2 var(--sans);text-align:center;text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s,transform .1s}
+.btn:hover,.btn:active{background:var(--gold-deep);color:#fff}
+.btn:active{transform:translateY(1px)}
+.btn[disabled]{cursor:progress;background:var(--gold-deep);color:#fff}
+.cta-nota{margin-top:.625rem;font-size:.8125rem;line-height:1.5;max-width:30rem}
+.cta-nota a{color:var(--ink)}
+
+@media (max-width:599px){.hero .btn{width:100%}}
+@media (max-width:419px){.btn{padding-inline:1rem;font-size:clamp(.9375rem,4.1vw,1.0625rem)}}
+
+@media (min-width:900px){
+  /* Desktop: texto à esquerda sobre o véu; do lado direito a foto aparece inteira */
+  .hero{display:flex;align-items:center;min-height:min(82vh,44rem);padding-block:5rem 6rem}
+  .hero__grid{width:100%}
+  .hero__texto{max-width:38rem}
+  .hero__foto{inset:0;height:auto}
+  .hero__foto img{object-position:var(--foto-pos-desktop)}
+  .hero__foto::after{background:
+    linear-gradient(90deg,var(--bg-cream) 0,var(--bg-cream) 38%,rgba(244,237,227,.9) 52%,rgba(244,237,227,.3) 66%,rgba(244,237,227,.1) 100%),
+    linear-gradient(0deg,var(--bg-cream) 0,rgba(244,237,227,0) 18%)}
+}
+
+/* Barra fixa "Pedir contato" (celular) */
+.fixo{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:.7rem var(--gutter) calc(.7rem + env(safe-area-inset-bottom));background:var(--bg-cream);border-top:1px solid var(--hair);transform:translateY(110%);visibility:hidden;transition:transform .2s ease,visibility 0s .2s}
+.fixo.is-on{transform:none;visibility:visible;transition:transform .2s var(--ease-out)}
+.fixo .btn{width:100%}
+@media (min-width:900px){.fixo{display:none}}
+@media (prefers-reduced-motion:reduce){.fixo,.fixo.is-on{transition:none}}
+</style>
+<link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+<noscript>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,72,400,100;1,72,400,100&family=Poppins:wght@400;500&display=swap&subset=latin-ext">
+</noscript>
+<script src="main.js" defer></script>
+</head>
+<body>
+
+<!-- Ícones reutilizados -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.42.25-.69.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.24-6.16-3.48-8.4"/></symbol>
+  <symbol id="i-kf" viewBox="0 0 48 48"><circle cx="24" cy="24" r="23" fill="none" stroke="currentColor" stroke-width="1.1"/><text x="24" y="30.5" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="19" letter-spacing="-.5" fill="currentColor">KF</text></symbol>
+</svg>
+
+<!-- [PREENCHER] Monograma provisório. Substitua pelo SVG oficial do logo KF quando a agência enviar o arquivo. -->
+<header class="topo">
+  <div class="wrap topo__barra">
+    <a class="marca" href="#inicio" aria-label="Kelly Ferreira Advocacia, voltar ao início">
+      <svg class="marca__kf" aria-hidden="true"><use href="#i-kf"/></svg>
+      <span class="marca__nome">Kelly Ferreira<small>Advocacia</small></span>
+    </a>
+    <a class="topo__cta" href="#cadastro" data-cta="topo"><span class="topo__cta-curto">Pedir contato</span><span class="topo__cta-longo">Pedir contato da Kelly</span></a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== 1. HERO  (OFERTA: textos marcados mudam por oferta) ===================== -->
+  <section class="hero" id="inicio" aria-labelledby="titulo-hero">
+    <!-- Foto ilustrativa provisória (Pexels, licença livre). Para trocar, gere img/hero-1280.webp e
+         hero-1920.webp (3:2) e img/hero-m.webp (recorte 3:2 do assunto, 720px) e ajuste --foto-pos-* no CSS. -->
+    <div class="hero__foto" aria-hidden="true">
+      <picture>
+        <source media="(max-width: 899px)" srcset="img/hero-m.webp" type="image/webp">
+        <img src="img/hero-1280.webp" srcset="img/hero-1280.webp 1280w, img/hero-1920.webp 1920w" sizes="100vw"
+             width="1920" height="1280" alt="" fetchpriority="high" decoding="async">
+      </picture>
+    </div>
+    <div class="wrap hero__grid">
+      <div class="hero__texto">
+        <!-- OFERTA -->
+        <h1 id="titulo-hero">Um <em>não</em> do INSS pesa mais quando a saúde já não vai bem.</h1>
+        <!-- OFERTA -->
+        <p class="hero__sub">Benefício negado ou cortado pelo INSS</p>
+        <!-- OFERTA -->
+        <p class="hero__corpo">A Kelly lê com você o aviso do INSS, na carta ou no Meu INSS, e explica os caminhos em palavras simples.</p>
+        <div class="hero__acao">
+          <a class="btn" id="cta-hero" href="#cadastro" data-cta="hero">Pedir contato da Kelly</a>
+          <p class="cta-nota">São só três campos: nome, WhatsApp e cidade. Pedir contato não obriga você a contratar nada.</p>
+          <!-- [PREENCHER] número da OAB -->
+          <p class="hero__oab">Kelly Ferreira, advogada · OAB/PE nº [PREENCHER]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. RECONHECIMENTO + CARTA ===================== -->
+  <!-- Grade comum (desktop): título da seção na coluna da esquerda, conteúdo na da direita. -->
+  <section class="secao reconhece" aria-labelledby="titulo-reconhece">
+    <div class="wrap grade">
+      <div class="grade__cabeca">
+        <h2 id="titulo-reconhece">Talvez você já tenha dito alguma destas frases</h2>
+      </div>
+      <div class="grade__corpo">
+        <ul class="falas">
+          <li>A perícia é semana que vem e eu nem sei o que precisa levar.</li>
+          <li>Meu pedido foi negado e a carta não explica nada direito.</li>
+          <li>Do nada, o benefício parou de cair na conta.</li>
+          <li>Levei o laudo do meu médico, e o perito do INSS disse que eu posso trabalhar.</li>
+          <li>Minha mãe não tem condição de trabalhar e eu não sei se ela tem direito a alguma coisa.</li>
+        </ul>
+
+        <!-- OFERTA: para BPC ou auxílio, troque o benefício e o motivo da carta (ver README). -->
+        <figure class="carta" id="carta">
+          <div class="carta__pilha">
+            <div class="carta__folha">
+              <p class="carta__orgao">Instituto Nacional do Seguro Social</p>
+              <p class="carta__titulo">Comunicação de decisão</p>
+              <p>Requerente: <span class="tarja" style="--w:8.5rem" role="img" aria-label="nome oculto"></span></p>
+              <p>Benefício: auxílio por incapacidade temporária</p>
+              <p class="carta__situacao">Situação do pedido: <strong>indeferido</strong></p>
+              <p class="carta__motivo">Motivo: não constatação de incapacidade laborativa.
+                <svg class="grifo" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" vector-effect="non-scaling-stroke" d="M34 9C95 1 232 2 283 15c20 7 16 30-18 38-58 10-170 9-230 2C3 50-4 32 10 20 26 8 70 4 112 5"/></svg>
+              </p>
+              <div class="carta__tarjas" aria-hidden="true">
+                <span class="tarja" style="--w:100%"></span>
+                <span class="tarja" style="--w:86%"></span>
+                <span class="tarja" style="--w:52%"></span>
+              </div>
+            </div>
+          </div>
+          <figcaption class="carta__legenda">
+            <p class="carta__nota">
+              <svg class="seta" viewBox="0 0 34 42" aria-hidden="true"><path pathLength="1" vector-effect="non-scaling-stroke" d="M24 40C10 34 5 22 9 3M3 10l6-8 6 7"/></svg>
+              Traduzindo: indeferido quer dizer negado. O motivo diz que o perito entendeu que você consegue trabalhar. É por aí que a análise começa.
+            </p>
+            <small class="carta__fonte">Modelo ilustrativo da carta de decisão que o INSS envia.</small>
+          </figcaption>
+        </figure>
+
+        <p class="reconhece__fecho">Cada uma dessas situações tem um caminho diferente. O primeiro passo é entender o que aconteceu no seu caso, com calma e com alguém que explique sem complicar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. FRENTES DE ATUAÇÃO ===================== -->
+  <section class="secao secao--linha frentes" aria-labelledby="titulo-frentes">
+    <div class="wrap grade">
+      <div class="grade__cabeca">
+        <h2 id="titulo-frentes">No que a Kelly pode ajudar</h2>
+        <p class="secao__intro">Ao lado de cada situação, grifamos o nome que aparece no INSS, para você reconhecer o seu caso.</p>
+      </div>
+      <div class="grade__corpo grupos-frentes">
+        <div class="grupo">
+          <h3 class="grupo__titulo">O que aconteceu</h3>
+          <ul class="lista-frentes">
+            <li class="frente">
+              <div class="frente__nome"><h4>Benefício negado</h4><p>O INSS chama de <span class="termo">indeferimento</span>.</p></div>
+              <p>Você pediu e o INSS disse não. A Kelly lê o motivo e explica se o caminho é pedir de novo, recorrer no próprio INSS ou levar o caso à Justiça.</p>
+            </li>
+            <li class="frente">
+              <div class="frente__nome"><h4>Benefício cortado</h4><p>O INSS chama de <span class="termo">cessação</span>.</p></div>
+              <p>O benefício parou de ser pago, muitas vezes depois de uma nova perícia. Tem gente que só descobre quando o dinheiro não cai ou ao abrir o app Meu INSS.</p>
+            </li>
+            <li class="frente">
+              <div class="frente__nome"><h4>Perícia marcada</h4><p>A <span class="termo">perícia</span> é a consulta com o médico do INSS.</p></div>
+              <p>A Kelly orienta quais documentos levar, como organizar laudos e exames e o que costuma ser perguntado.</p>
+            </li>
+          </ul>
+        </div>
+        <div class="grupo">
+          <h3 class="grupo__titulo">Qual benefício</h3>
+          <ul class="lista-frentes">
+            <li class="frente">
+              <div class="frente__nome"><h4>Afastamento por doença</h4><p>Hoje se chama <span class="termo">auxílio por incapacidade temporária</span>. Antes era o auxílio-doença.</p></div>
+              <p>Para quem contribui ou já contribuiu com o INSS e precisa parar de trabalhar por um tempo, por doença ou acidente.</p>
+            </li>
+            <li class="frente">
+              <div class="frente__nome"><h4>Aposentadoria por incapacidade</h4><p>Hoje se chama <span class="termo">aposentadoria por incapacidade permanente</span>. Antes era por invalidez.</p></div>
+              <p>Para quem não consegue mais voltar a trabalhar, nem em outra função, por causa da doença ou da deficiência.</p>
+            </li>
+            <li class="frente">
+              <div class="frente__nome"><h4>BPC/LOAS</h4><p>No INSS aparece como <span class="termo">benefício assistencial</span>.</p></div>
+              <p>Um salário mínimo por mês para a pessoa com deficiência ou idosa a partir de 65 anos, com renda familiar baixa. Não é preciso ter contribuído com o INSS.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. COMO FUNCIONA ===================== -->
+  <section class="secao passos" aria-labelledby="titulo-passos">
+    <div class="wrap grade">
+      <div class="grade__cabeca">
+        <h2 id="titulo-passos">Como funciona o atendimento</h2>
+      </div>
+      <div class="grade__corpo">
+        <ol class="lista-passos">
+          <li>
+            <h3>Você deixa seu contato</h3>
+            <p>Nome, WhatsApp e cidade, no formulário do fim da página. Pode ser o seu ou o de alguém da família.</p>
+          </li>
+          <li>
+            <h3>A Kelly chama você no WhatsApp</h3>
+            <p>Ela faz algumas perguntas e pede os documentos que importam: a carta ou a tela do Meu INSS, laudos, exames e o CNIS, que é o extrato das suas contribuições. Se você não souber como conseguir algum deles, ela explica.</p>
+          </li>
+          <li>
+            <h3>Você recebe uma orientação clara</h3>
+            <p>Ela explica o que aconteceu, quais caminhos existem e como seria o acompanhamento, inclusive como funcionam os honorários. Aí você decide com calma se quer seguir.</p>
+          </li>
+        </ol>
+        <div class="passos__acao">
+          <a class="btn" href="#cadastro" data-cta="passos">Pedir contato da Kelly</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. QUEM É KELLY ===================== -->
+  <section class="secao sobre" aria-labelledby="titulo-sobre">
+    <div class="wrap grade">
+      <div class="grade__cabeca">
+        <!--
+          [PREENCHER] FOTO REAL DA KELLY. Troque o bloco .foto-provisoria por:
+          <img class="sobre__foto" src="img/kelly.webp" width="800" height="1000" loading="lazy" decoding="async"
+               alt="Kelly Ferreira, advogada, sorrindo em seu escritório">
+          (ajuste o alt para descrever a foto de verdade)
+        -->
+        <div class="foto-provisoria" role="img" aria-label="Espaço reservado para a foto da Kelly Ferreira">
+          <span>Foto real da Kelly<br>img/kelly.webp · 800×1000</span>
+        </div>
+      </div>
+      <div class="grade__corpo sobre__texto">
+        <h2 id="titulo-sobre">Quem vai acompanhar o seu caso</h2>
+        <p>Kelly Ferreira é advogada, com atuação exclusiva em Direito Previdenciário, a área que cuida dos benefícios do INSS. Ela atende pessoas adoecidas, pessoas com deficiência e suas famílias, e explica cada etapa em palavras simples.</p>
+        <p class="assinatura">
+          <span class="assinatura__nome">Kelly Ferreira</span>
+          <!-- [PREENCHER] número da OAB -->
+          <span>Advogada · OAB/PE nº [PREENCHER]</span>
+          <span>Atuação exclusiva em Direito Previdenciário</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. DÚVIDAS FREQUENTES ===================== -->
+  <section class="secao secao--linha faq" aria-labelledby="titulo-faq">
+    <div class="wrap grade">
+      <div class="grade__cabeca">
+        <h2 id="titulo-faq">Dúvidas frequentes</h2>
+      </div>
+      <div class="grade__corpo faq__lista">
+        <details>
+          <summary>Meu benefício foi negado ou cortado. Ainda dá para fazer alguma coisa?</summary>
+          <p>Depende do motivo, que aparece na carta do INSS ou no app Meu INSS. Em muitos casos existe mais de um caminho: fazer um novo pedido, recorrer no próprio INSS ou entrar com uma ação na Justiça. Para recorrer no INSS, o prazo é de 30 dias a partir do dia em que você tomou conhecimento da decisão. Por isso, vale não deixar para depois.</p>
+        </details>
+        <details>
+          <summary>Quanto custa?</summary>
+          <p>O valor depende do tipo de caso e do que precisa ser feito, por isso não existe uma tabela única. Depois de entender a sua situação, a Kelly explica como funcionam os honorários, que é o pagamento pelo trabalho da advogada, e tudo fica combinado por escrito antes de começar. Pedir contato não obriga você a contratar nada.</p>
+        </details>
+        <details>
+          <summary>O que é a perícia e o que eu levo?</summary>
+          <p>A perícia é a avaliação feita por um médico do INSS para ver se a doença ou a deficiência impede você de trabalhar. Leve documento com foto, laudos e atestados recentes com o CID (o código da doença que o médico escreve no laudo), exames, receitas e a lista dos remédios que você toma. Laudos que descrevem as suas limitações no dia a dia dizem mais do que os que trazem só o nome da doença.</p>
+        </details>
+        <details>
+          <summary>Sou da família. Posso pedir o contato no lugar da pessoa?</summary>
+          <p>Pode, sim. Deixe o seu nome e WhatsApp e conte na conversa o que está acontecendo. Mais adiante, a própria pessoa, ou quem responde legalmente por ela, vai precisar assinar alguns documentos.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. FECHAMENTO + FORMULÁRIO (vai para a planilha do Google) ===================== -->
+  <section class="secao secao--linha fecho" id="fechamento" aria-labelledby="titulo-fecho">
+    <div class="wrap grade">
+      <div class="grade__cabeca">
+        <h2 id="titulo-fecho">Você não precisa chegar com tudo organizado.</h2>
+        <p class="fecho__sub">Deixe só seu nome e WhatsApp.</p>
+        <p class="fecho__corpo">O resto a Kelly pergunta na conversa: o que aconteceu, quais documentos você tem e o que ainda falta.</p>
+      </div>
+      <div class="grade__corpo">
+          <div class="cadastro" id="cadastro">
+            <form class="cadastro__form" id="form-cadastro" novalidate aria-labelledby="titulo-cadastro">
+              <h3 class="cadastro__titulo" id="titulo-cadastro">Peça o contato da Kelly</h3>
+              <p class="cadastro__texto">A Kelly chama você no WhatsApp para entender o caso.</p>
+              <div class="campo campo--nome">
+                <label for="f-nome">Seu nome</label>
+                <input id="f-nome" name="nome" type="text" autocomplete="name" autocapitalize="words" maxlength="80" required aria-describedby="e-nome">
+                <p class="campo__erro" id="e-nome" hidden></p>
+              </div>
+              <div class="campo campo--whats">
+                <label for="f-whatsapp">WhatsApp com DDD</label>
+                <input id="f-whatsapp" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="(81) 99999-9999" maxlength="16" required aria-describedby="e-whatsapp">
+                <p class="campo__erro" id="e-whatsapp" hidden></p>
+              </div>
+              <div class="campo campo--cidade">
+                <label for="f-cidade">Cidade/UF</label>
+                <input id="f-cidade" name="cidade" type="text" autocomplete="address-level2" autocapitalize="words" placeholder="Recife/PE" maxlength="60" required aria-describedby="e-cidade">
+                <p class="campo__erro" id="e-cidade" hidden></p>
+              </div>
+              <!-- Isca para robôs: pessoas não veem este campo. Se vier preenchido, o cadastro é descartado. -->
+              <div class="campo--isca" aria-hidden="true">
+                <label for="f-empresa">Empresa</label>
+                <input id="f-empresa" name="empresa" type="text" tabindex="-1" autocomplete="off">
+              </div>
+              <button class="btn" type="submit">Pedir contato da Kelly</button>
+              <p class="cta-nota">Pedir contato não obriga você a contratar nada. Seus dados servem só para a Kelly falar com você (<a href="politica-de-privacidade.html">política de privacidade</a>).</p>
+              <p class="form__status" role="alert"></p>
+            </form>
+
+            <div class="cadastro__ok" id="cadastro-ok" tabindex="-1" hidden>
+              <h3>Recebemos seu contato.</h3>
+              <p data-ok="planilha">A Kelly vai chamar você no WhatsApp <strong data-ok-whats></strong>. Enquanto isso, se puder, separe a carta do INSS ou um print da tela do Meu INSS.</p>
+              <p data-ok="whatsapp" hidden>Abrimos o WhatsApp da Kelly com os seus dados. É só tocar em enviar. Se ele não abriu, chame no (81) 99109-3631.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== 8. RODAPÉ (único lugar com WhatsApp direto) ===================== -->
+<footer class="rodape">
+  <div class="wrap grade rodape__grade">
+    <div class="rodape__marca">
+      <svg class="rodape__kf" aria-hidden="true"><use href="#i-kf"/></svg>
+      <p class="rodape__nome">Kelly Ferreira Sociedade Individual de Advocacia</p>
+      <!-- [PREENCHER] nome completo conforme a carteira da OAB e número de inscrição -->
+      <p>Kelly Ferreira, advogada · OAB/PE nº [PREENCHER]</p>
+      <p>CNPJ 49.361.431/0001-72</p>
+    </div>
+    <ul class="rodape__links">
+      <li><a class="rodape__wa" href="https://wa.me/5581991093631" target="_blank" rel="noopener" data-wa data-msg="Olá, Kelly! Vim pelo site."><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp (81) 99109-3631</a></li>
+      <!-- [PREENCHER] confirme que este número atende ligação; se for só WhatsApp, apague esta linha -->
+      <li><a href="tel:+5581991093631">Ligar para (81) 99109-3631</a></li>
+      <li><a href="mailto:kellyjsferreira.adv@gmail.com">kellyjsferreira.adv@gmail.com</a></li>
+      <li><a href="politica-de-privacidade.html">Política de privacidade</a></li>
+    </ul>
+    <div class="rodape__base">
+      <p>As informações desta página são de caráter informativo e não substituem a análise individual do seu caso.</p>
+      <p>© <span id="ano">2026</span> Kelly Ferreira Advocacia</p>
+    </div>
+  </div>
+</footer>
+
+<div class="fixo" id="fixo">
+  <a class="btn" href="#cadastro" data-cta="barra-fixa">Pedir contato da Kelly</a>
+</div>
+
+<!-- Meta Pixel sem JavaScript. Descomente e troque SEU_PIXEL_ID quando tiver o ID.
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"></noscript>
+-->
+</body>
+</html>

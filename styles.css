@@ -1,0 +1,171 @@
+/* =========================================================
+   Kelly Ferreira Advocacia · estilos abaixo da dobra
+   Tokens, base, cabeçalho, hero com formulário e barra fixa estão inline no <head> do index.html.
+   ========================================================= */
+
+/* Seções */
+.secao{padding-block:clamp(3.5rem,9vw,6.5rem)}
+.secao h2{font-size:clamp(1.875rem,1.3rem + 1.8vw,2.625rem);max-width:18ch}
+.secao__intro{margin-top:1rem;max-width:34rem}
+
+/* Grade comum a todas as seções e ao rodapé.
+   Celular: uma coluna, tudo alinhado à esquerda.
+   Desktop: título da seção na coluna da esquerda (1/3, acompanha a rolagem), conteúdo na da direita (2/3). */
+.grade{display:grid;gap:2rem}
+.secao--linha .grade::before{content:"";height:1px;background:var(--hair)}
+@media (min-width:900px){
+  .grade{grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:clamp(3rem,6vw,5rem);row-gap:0;align-items:start}
+  .secao--linha .grade::before{grid-column:1/-1;margin-bottom:clamp(2.5rem,5vw,4rem)}
+  .grade__cabeca{position:sticky;top:6.5rem}
+}
+
+/* 2. Reconhecimento: falas reais em Fraunces reta; as aspas douradas marcam a voz */
+.reconhece{padding-top:clamp(3rem,7vw,5rem)}
+.falas{list-style:none;padding:0;display:grid;gap:1.75rem}
+.falas li{position:relative;padding-left:2rem;max-width:32ch;font:400 clamp(1.25rem,1.05rem + .9vw,1.625rem)/1.4 var(--serif);color:var(--ink)}
+.falas li::before{content:"\201C" / "";position:absolute;left:0;top:-.05em;font:400 2.4em/1 var(--serif);color:var(--gold)}
+.reconhece__fecho{margin-top:2.5rem;max-width:34rem}
+
+/* Carta ilustrativa: a assinatura da página, logo depois das falas */
+.carta{position:relative;margin-top:3.5rem;max-width:23rem}
+.carta__pilha{position:relative}
+.carta__pilha::before{content:"";position:absolute;inset:0;background:var(--surface);border:1px solid var(--hair);transform:translate(9px,11px) rotate(2.2deg)}
+.carta__folha{position:relative;background:var(--surface);border:1px solid var(--hair);padding:1.4rem 1.4rem 1.6rem;transform:rotate(-1.4deg);font-size:.8125rem;line-height:1.55}
+.carta__folha p+p{margin-top:.55rem}
+.carta__orgao{font-size:.75rem;letter-spacing:.02em}
+.carta__titulo{font-weight:500;font-size:.9375rem;color:var(--ink);padding-bottom:.6rem;border-bottom:1px solid var(--hair)}
+.carta__folha strong{font-weight:500;color:var(--ink)}
+.tarja{display:inline-block;width:var(--w,6rem);max-width:100%;height:.55em;border-radius:2px;background:rgba(74,72,69,.16);vertical-align:middle}
+.carta__tarjas{display:grid;gap:.5rem;padding-top:.35rem}
+.carta__motivo{position:relative;color:var(--ink)}
+.grifo{position:absolute;inset:-.7rem -.8rem -.6rem -.9rem;width:calc(100% + 1.7rem);height:calc(100% + 1.3rem);overflow:visible;pointer-events:none}
+.grifo path,.seta path{fill:none;stroke:var(--gold);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.carta__legenda{margin-top:2.4rem;max-width:21rem}
+.carta__nota{position:relative;padding-left:2.6rem;font:500 1rem/1.5 var(--sans);color:var(--ink)}
+.seta{position:absolute;left:.2rem;top:-1.9rem;width:2.1rem;height:2.6rem;overflow:visible}
+.carta__fonte{display:block;margin-top:1rem;font-size:.75rem;line-height:1.5}
+
+/* Único movimento decorativo: o grifo circula o motivo e a seta aponta a tradução */
+.js .grifo path,.js .seta path{stroke-dasharray:1;stroke-dashoffset:1}
+.js .carta.is-in .grifo path{stroke-dashoffset:0;transition:stroke-dashoffset .9s .25s var(--ease-out)}
+.js .carta.is-in .seta path{stroke-dashoffset:0;transition:stroke-dashoffset .45s .95s var(--ease-out)}
+@media (prefers-reduced-motion:reduce){
+  .js .grifo path,.js .seta path{stroke-dashoffset:0}
+  .js .carta *{transition:none!important}
+}
+
+/* 3. Frentes: dois grupos (o que aconteceu / qual benefício); o nome do INSS vem grifado como na carta */
+.grupos-frentes{display:grid;gap:3rem}
+.grupo__titulo{font:500 1.5rem/1.3 var(--sans);letter-spacing:-.01em;color:var(--gold-deep)}
+.lista-frentes{list-style:none;padding:0;margin-top:1rem;border-top:1px solid var(--hair)}
+.frente{padding-block:1.5rem;border-bottom:1px solid var(--hair)}
+.frente h4{font-size:1.375rem;line-height:1.2}
+.frente__nome p{margin-top:.4rem;font-size:.9375rem;line-height:1.6}
+.frente>p{margin-top:.6rem;max-width:36rem}
+.termo{color:var(--ink);padding-bottom:.2em;-webkit-box-decoration-break:clone;box-decoration-break:clone;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'%3E%3Cpath d='M1 5.6C18 2.6 42 3.2 60 4.3S87 6.1 99 2.8' fill='none' stroke='%23A8894F' stroke-width='1.6' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") left bottom/100% .5em no-repeat}
+@media (min-width:760px){
+  .frente{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:2rem;align-items:start}
+  .frente>p{margin-top:0}
+}
+
+/* 4. Passos: única numeração da página, porque é sequência */
+.passos{background:var(--surface)}
+.lista-passos{list-style:none;padding:0;display:grid;gap:2.25rem;counter-reset:passo}
+.lista-passos li{counter-increment:passo;position:relative;padding-left:4rem}
+.lista-passos li::before{content:counter(passo);position:absolute;left:0;top:-.35rem;font:400 3rem/1 var(--serif);color:var(--gold-deep)}
+.lista-passos h3{font-size:1.5rem;line-height:1.2}
+.lista-passos p{margin-top:.5rem;max-width:34rem}
+.passos__acao{margin-top:2.5rem}
+@media (max-width:599px){.passos__acao .btn{width:100%}}
+
+/* 5. Quem é Kelly: a foto ocupa a coluna dos títulos */
+.sobre__foto,.foto-provisoria{width:100%;max-width:17rem;aspect-ratio:4/5;height:auto;object-fit:cover}
+.foto-provisoria{display:grid;place-items:center;padding:1rem;border:1px dashed var(--gold-deep);background:rgba(168,137,79,.1);text-align:center;font-size:.8125rem;color:var(--body)}
+.sobre__texto>p:first-of-type{margin-top:1.25rem;max-width:36rem}
+.assinatura{margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--hair);display:grid;gap:.1rem;font-size:.9375rem;max-width:36rem}
+.assinatura__nome{font:400 1.5rem/1.3 var(--serif);color:var(--ink)}
+@media (min-width:900px){.sobre__foto,.foto-provisoria{max-width:none}}
+
+/* 6. FAQ: <details> nativo, abertura suave e uma resposta por vez (main.js) */
+.faq__lista{border-top:1px solid var(--hair)}
+.faq details{border-bottom:1px solid var(--hair)}
+.faq summary{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;min-height:3rem;padding-block:1.25rem;cursor:pointer;list-style:none;font:500 1.0625rem/1.45 var(--sans);color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+/* Sinal de abrir/fechar desenhado em CSS (dois traços). Ao abrir, o traço vertical encolhe: "+" vira "−". */
+.faq summary::after{content:"";flex:none;width:.875rem;height:.875rem;margin-top:.35em;
+  background:linear-gradient(var(--gold-deep),var(--gold-deep)) center/100% 1.5px no-repeat,
+             linear-gradient(var(--gold-deep),var(--gold-deep)) center/1.5px 100% no-repeat;
+  transition:background-size .38s cubic-bezier(.16,1,.3,1)}
+.faq details[open]:not(.is-closing) summary::after{background-size:100% 1.5px,1.5px 0}
+@media (prefers-reduced-motion:reduce){.faq summary::after{transition:none}}
+.faq summary:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:1px;text-underline-offset:.3em}
+.faq details p{padding-bottom:1.5rem;max-width:42rem}
+
+/* 7. Fechamento: tríptico à esquerda, formulário à direita (no celular, logo abaixo) */
+.fecho{padding-bottom:clamp(4.5rem,11vw,8rem)}
+.fecho h2{font-size:clamp(2rem,1.3rem + 2.2vw,3rem);line-height:1.08;max-width:14ch}
+.fecho__sub{margin-top:1rem;font:500 1.5rem/1.3 var(--sans);letter-spacing:-.01em;color:var(--gold-deep);max-width:26ch}
+.fecho__corpo{margin-top:1rem;max-width:32rem}
+
+/* Formulário de cadastro (vai para a planilha do Google) */
+.cadastro{max-width:30rem;padding:1.25rem;border:1px solid var(--hair);border-radius:8px;background:var(--surface);scroll-margin-top:1.5rem}
+.cadastro__form{display:grid;gap:.875rem}
+.cadastro__titulo{font-size:1.75rem;line-height:1.15}
+.cadastro__texto{margin-top:-.5rem;font-size:1rem;line-height:1.55}
+.campo label{display:block;margin-bottom:.25rem;font:500 .875rem/1.4 var(--sans);color:var(--ink)}
+.campo input{width:100%;min-height:3rem;padding:.625rem .75rem;border:1px solid var(--gold-deep);border-radius:6px;background:var(--surface);color:var(--ink);font:400 1rem/1.3 var(--sans);-webkit-appearance:none;appearance:none}
+.campo input::placeholder{color:rgba(74,72,69,.8)}
+.campo input:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
+.campo[data-erro] input{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.campo__erro{margin-top:.3rem;font:500 .8125rem/1.4 var(--sans);color:var(--ink)}
+.campo--isca{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.cadastro__form .btn{width:100%;margin-top:.25rem}
+.form__status{font:500 .875rem/1.5 var(--sans);color:var(--ink)}
+.form__status:empty{display:none}
+.cadastro__ok:focus{outline:none}
+.cadastro__ok h3{font-size:1.75rem;line-height:1.15}
+.cadastro__ok p{margin-top:.6rem}
+/* WhatsApp e cidade lado a lado só quando há largura; no celular, um campo por linha */
+@media (min-width:480px){
+  .cadastro{padding:2rem}
+  .cadastro__form{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:.875rem .625rem}
+  .cadastro__form>*{grid-column:1/-1}
+  .cadastro__form>.campo--whats{grid-column:1}
+  .cadastro__form>.campo--cidade{grid-column:2}
+}
+
+/* 8. Rodapé: mesma grade das seções; único lugar com WhatsApp direto */
+.rodape{background:var(--ink);color:var(--bg-cream);font-size:.875rem;line-height:1.7;padding-block:3.5rem 1.5rem}
+.rodape a{color:var(--bg-cream)}
+.rodape a:hover{color:#fff}
+.rodape :focus-visible{outline-color:var(--bg-cream)}
+.rodape__kf{width:2.5rem;height:2.5rem;color:var(--gold);margin-bottom:1rem}
+.rodape__nome{font:400 1.0625rem/1.4 var(--serif);margin-bottom:.35rem}
+.rodape__links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.rodape__links a{display:inline-flex;align-items:center;gap:.5rem;min-height:44px}
+.rodape__wa svg{width:1.1rem;height:1.1rem;color:var(--gold);flex:none}
+.rodape__base{padding-top:1.5rem;border-top:1px solid rgba(244,237,227,.18);display:grid;gap:.5rem;font-size:.8125rem;color:rgba(244,237,227,.82)}
+.rodape__base p:first-child{max-width:62ch}
+@media (min-width:900px){
+  .rodape__grade{row-gap:2.5rem}
+  .rodape__links{flex-direction:row;flex-wrap:wrap;column-gap:2rem;align-self:end}
+  .rodape__base{grid-column:1/-1;grid-template-columns:1fr auto;gap:2rem}
+}
+
+/* Lenis (rolagem suave no desktop). CSS recomendado pela biblioteca, v1.3.26 */
+html.lenis,html.lenis body{height:auto}
+.lenis:not(.lenis-autoToggle).lenis-stopped{overflow:clip}
+.lenis [data-lenis-prevent],.lenis [data-lenis-prevent-wheel],.lenis [data-lenis-prevent-touch],
+.lenis [data-lenis-prevent-vertical],.lenis [data-lenis-prevent-horizontal]{overscroll-behavior:contain}
+.lenis.lenis-smooth iframe{pointer-events:none}
+.lenis.lenis-autoToggle{transition-property:overflow;transition-duration:1ms;transition-behavior:allow-discrete}
+
+/* Página de política de privacidade */
+.doc{padding-block:2.5rem 5rem}
+.doc h1{font-size:clamp(2rem,1.4rem + 2.6vw,3rem);max-width:18ch}
+.doc h2{margin-top:2.5rem;font-size:1.5rem}
+.doc p,.doc ul{margin-top:.9rem;max-width:42rem}
+.doc ul{padding-left:1.2rem}
+.doc__aviso{margin-top:1.5rem;padding:1rem 1.25rem;border:1px dashed var(--gold-deep);font-size:.9375rem}
+.doc__voltar{display:inline-block;margin-top:3rem}

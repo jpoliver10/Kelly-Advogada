@@ -1,0 +1,7 @@
+# Notas locais da ferramenta de design
+.impeccable/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
