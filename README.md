@@ -33,7 +33,7 @@ Procure por `[PREENCHER]` em `index.html` e `politica-de-privacidade.html`.
 | **Domínio** | Localize e substitua `SEU-DOMINIO.com.br` em `index.html` (canonical, og:url, og:image). |
 | **Meta Pixel ID** | `window.KF.pixelId`. Vazio = Pixel desligado. |
 | **WhatsApp do rodapé** | `window.KF.whatsapp` e os `href` do rodapé (localizar e substituir `5581991093631`). Confirme se o número atende ligação; se for só WhatsApp, apague a linha "Ligar para". |
-| **Foto da Kelly** | Salve `img/kelly.webp` (800×1000, até ~80KB) e troque o bloco `.foto-provisoria` pelo `<img>` comentado logo acima dele. |
+| **Foto da Kelly** | Feito: `img/kelly.webp` (800×1000, 37KB) na seção "Quem vai acompanhar o seu caso". Para trocar, salve outro retrato 4:5 com o mesmo nome. |
 | **Logo** | O monograma KF é provisório. Troque o `<symbol id="i-kf">` no topo do `<body>` e `img/favicon.svg`. |
 | **Política de privacidade** | Revise, preencha data e prazo de guarda e apague o aviso de rascunho. |
 
@@ -208,5 +208,5 @@ A primeira rodada, com conexões frias, fica no limite da meta (entre 2,00s e 2,
 
 **Peso transferido no celular:** ~95KB no total, somando HTML 10,1KB, CSS 4,1KB, JS 5,8KB, fontes ~57KB, foto 15KB e o CSS do Google Fonts ~5KB (valores compactados).
 - **Com o Meta Pixel ligado:** +~90KB, baixados depois do carregamento.
-- **Com a foto real da Kelly:** +60 a 80KB, carregada só quando a pessoa rola até ela.
+- **Retrato da Kelly (seção "Quem vai acompanhar"):** +37KB, carregado só quando a pessoa rola até ele.
 - **O Lenis (+5KB)** só é baixado no desktop.
