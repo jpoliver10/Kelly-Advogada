@@ -159,7 +159,7 @@ a{color:inherit;text-underline-offset:.2em}
   /* Desktop: a foto ocupa o fundo inteiro da hero, sem véu nem degradê, com a Kelly à direita e o texto por cima.
      A altura da hero segue a proporção da foto (2000x1126), limitada à altura da tela, para ela aparecer quase inteira.
      Texto direto sobre a foto, sem véu e sem sombra; o corpo usa a cor do título para ganhar contraste. */
-  .hero{display:flex;align-items:center;min-height:min(calc(100vw * 1126 / 2000),100vh);padding-block:9.5rem 6rem;overflow:hidden}
+  .hero{display:flex;align-items:flex-start;min-height:min(calc(100vw * 1126 / 2000),100vh);padding-block:clamp(7.5rem,14vh,10rem) 6rem;overflow:hidden}
   .hero__grid{width:100%;margin-top:0}
   .hero__texto{max-width:min(34rem,48%)}
   .hero__corpo{color:var(--ink)}
