@@ -151,6 +151,8 @@ Site estático: basta subir a pasta inteira (Netlify Drop, Cloudflare Pages, Ver
 
 Para testar localmente: `python -m http.server 5500` dentro da pasta.
 
+Sempre que mudar o `styles.css`, aumente o número em `styles.css?v=2` (no `index.html` e na `politica-de-privacidade.html`). Sem isso, o navegador pode continuar mostrando o CSS antigo por horas.
+
 ---
 
 ## Checklist de compliance (Provimento 205/2021 CFOAB) e LGPD · para a Kelly aprovar
