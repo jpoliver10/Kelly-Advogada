@@ -10,8 +10,8 @@ styles.css                   estilos abaixo da dobra
 main.js                      formulário -> planilha, UTMs, Meta Pixel, barra fixa, carta, Lenis, FAQ
 integracao/google-sheets.gs  script do Google que grava os cadastros na planilha
 politica-de-privacidade.html rascunho LGPD (revisar antes de publicar)
-img/kelly-fundo-1671.webp    fundo da hero, desktop grande (1671×941, 63KB)
-img/kelly-fundo-1100.webp    fundo da hero, desktop (1100×619, 34KB)
+img/kelly-fundo-2000.webp    fundo da hero, desktop grande (2000×1126, 81KB)
+img/kelly-fundo-1280.webp    fundo da hero, desktop (1280×721, 40KB)
 img/kelly-fundo-m.webp       recorte do rosto para o celular (720×400, 11KB)
 img/kelly.webp               retrato da seção "Quem vai acompanhar o seu caso" (800×1000, 37KB)
 img/kelly-hero.webp          versão anterior da hero (arte com fundo creme), fora de uso
@@ -129,15 +129,15 @@ Se mudar o título ou o corpo do hero, confira em 360×640 se o botão "Pedir co
 
 ## Foto da hero
 
-Arte enviada pelo escritório (1671×941): a Kelly num campo de lavoura, com trabalhadores desfocados ao fundo. Ela ocupa o fundo inteiro da hero (`img/kelly-fundo-*.webp`).
+Arte enviada pelo escritório (2728×1536): a Kelly num campo de lavoura ao nascer do sol, com trabalhadores desfocados ao fundo. Ela ocupa o fundo inteiro da hero (`img/kelly-fundo-*.webp`).
 - **Celular:** faixa no topo da hero, com o título subindo sobre o fim esmaecido da foto.
 - **Desktop:** a foto cobre o fundo inteiro da hero, sem véu nem degradê, com a Kelly à direita e o texto por cima. A altura da hero segue a proporção da foto, limitada à altura da tela, para ela aparecer quase inteira. Para a leitura, o texto tem só um halo creme justo às letras, e o corpo, a nota e a linha da OAB usam a cor do título. A base da hero é um corte inclinado (SVG `.hero__corte`), com uma faixa dourada `#A8894F` entre a foto e o bege da seção seguinte. No celular o corte não aparece, porque lá a foto já termina esmaecendo.
 - **Entrada:** ao carregar, a foto "assenta" devagar (escala e leve subida, 1,6s). Só usa transform, então não atrasa o LCP, e fica desligada para quem pede menos movimento.
 
-**Resolução:** a arte tem 1671px de largura. Em telas de até ~1700px ela aparece sem ampliação; acima disso, fica um pouco suave.
+**Resolução:** a arte original tem 2728px de largura; o site usa versões de 1280 e 2000px (o navegador escolhe pela largura da tela) e fica nítido em qualquer monitor comum.
 
 Para trocar:
-1. Gere `kelly-fundo-1671.webp` e `kelly-fundo-1100.webp` (a arte inteira) e `kelly-fundo-m.webp` (recorte 720×400 do rosto), e atualize `width`/`height` no `<img>`.
+1. Gere `kelly-fundo-2000.webp` e `kelly-fundo-1280.webp` (a arte inteira) e `kelly-fundo-m.webp` (recorte 720×400 do rosto), e atualize `width`/`height` no `<img>`.
 2. Ajuste `--foto-pos-mobile` e `--foto-pos-desktop` no CSS do `<head>`.
 3. Confira em 360×640 se o botão da hero continua na primeira tela.
 
@@ -194,7 +194,7 @@ Sempre que mudar o `styles.css`, aumente o número em `styles.css?v=2` (no `inde
   - `#FFFFFF` branco, no painel do formulário, na carta e na faixa dos passos.
 - **Contraste:** o dourado claro dá só 2,8:1 sobre o creme, por isso nunca aparece em texto.
 - **Tipos:** Fraunces 400 e itálico (títulos, falas, numerais) e Poppins 400/500 (texto, formulário, botões). São 4 arquivos de fonte.
-- **Cabeçalho:** transparente sobre o céu da foto da hero. No desktop fica fixo e, ao rolar, ganha fundo creme translúcido (`.is-solido`, via `main.js`). A partir de 1024px mostra os atalhos "No que ajuda", "Como funciona", "Quem é a Kelly" e "Dúvidas" (em Fraunces, tinta sobre o céu, sublinhado dourado no hover). No celular, só a marca e "Pedir contato", por cima da faixa da foto. As âncoras param abaixo do cabeçalho pelo `scroll-padding-top` do CSS, que o Lenis também respeita.
+- **Cabeçalho:** transparente sobre o céu da foto da hero. No desktop fica fixo e, ao rolar, ganha fundo creme translúcido (`.is-solido`, via `main.js`). A partir de 1024px mostra os atalhos "No que ajuda", "Como funciona", "Quem é a Kelly" e "Dúvidas", centralizados no espaço entre a marca e o botão (em Fraunces, tinta sobre o céu, sublinhado dourado no hover). No celular, só a marca e "Pedir contato", por cima da faixa da foto. As âncoras param abaixo do cabeçalho pelo `scroll-padding-top` do CSS, que o Lenis também respeita.
 - **Estrutura:** hero com texto e botão à esquerda e a foto da Kelly à direita (no celular, a foto vem por cima do título). Depois disso, todas as seções seguem a mesma grade, com o título na coluna esquerda (1/3) e o conteúdo na direita (2/3). O formulário fecha a página, no fechamento.
 - **Assinatura:** a carta de decisão do INSS com o motivo circulado e traduzido, logo depois das falas de reconhecimento.
 
