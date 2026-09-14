@@ -10,7 +10,7 @@ styles.css                   estilos abaixo da dobra
 main.js                      formulário -> planilha, UTMs, Meta Pixel, barra fixa, carta, Lenis, FAQ
 integracao/google-sheets.gs  script do Google que grava os cadastros na planilha
 politica-de-privacidade.html rascunho LGPD (revisar antes de publicar)
-img/kelly-hero.webp          foto da Kelly na hero, celular e desktop (524×532, 25KB)
+img/kelly-hero.webp          foto da Kelly na hero, celular e desktop (604×532, 26KB)
 img/hero-*.webp              foto anterior das mãos (Pexels), fora de uso; pode apagar se a foto da Kelly ficar
 img/favicon.svg              favicon provisório (monograma KF)
 img/apple-touch-icon.png     ícone iOS provisório
@@ -125,9 +125,9 @@ Se mudar o título ou o corpo do hero, confira em 360×640 se o botão "Pedir co
 
 ## Foto da hero
 
-Foto da própria Kelly, tirada da arte enviada pelo escritório (724×532). No recorte `img/kelly-hero.webp`, o logo embutido foi apagado (o logo já está no cabeçalho), o creme do fundo foi acertado para `#F4EDE3` e a borda esquerda foi cortada em x=200.
+Foto da própria Kelly, tirada da arte enviada pelo escritório (724×532). No recorte `img/kelly-hero.webp`, o logo embutido foi apagado (o logo já está no cabeçalho), o creme do fundo foi acertado para `#F4EDE3` e a borda esquerda foi cortada em x=120 (sobra campo dos dois lados dela).
 - **Celular:** faixa no topo da hero, com o título subindo sobre o fim esmaecido da foto.
-- **Desktop:** a foto ocupa a metade direita da grade, alinhada ao conteúdo e não à borda da tela, com a Kelly perto do centro. As laterais e a base se dissolvem no creme (máscara em degradê), sem corte reto.
+- **Desktop:** a foto ocupa a metade direita da grade, alinhada ao conteúdo e não à borda da tela, com a Kelly perto do centro. A caixa tem a proporção da foto e fica apoiada na base da hero, então nada é cortado. Só as pontas das laterais, o topo e a base se dissolvem no creme (máscara em degradê), e os braços dela ficam inteiros.
 - **Entrada:** ao carregar, a foto "assenta" devagar (escala e leve subida, 1,6s). Só usa transform, então não atrasa o LCP, e fica desligada para quem pede menos movimento.
 
 **Resolução:** a arte tem só 532px de altura e, no desktop, aparece ampliada cerca de 1,4×. Para ficar nítida, peça o arquivo original em alta (ideal: 1600px de altura ou mais). Depois, rode o mesmo recorte e troque o arquivo.

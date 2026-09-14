@@ -104,7 +104,7 @@ a{color:inherit;text-underline-offset:.2em}
 .hero{position:relative;isolation:isolate;padding-block:0 3rem}
 /* Foto da Kelly (arte do escritório, recortada sem o logo; o creme do fundo foi acertado para #F4EDE3).
    Celular: faixa acima do título, que sobe um pouco sobre o fim esmaecido da foto. */
-.hero{--foto-pos-mobile:58% 14%;--foto-pos-desktop:48% 100%}
+.hero{--foto-pos-mobile:56% 14%;--foto-pos-desktop:50% 100%}
 .hero__foto{position:relative;height:clamp(12.5rem,48vw,20rem);overflow:hidden;pointer-events:none}
 .hero__foto img{width:100%;height:100%;object-fit:cover;object-position:var(--foto-pos-mobile);transform-origin:50% 100%;animation:kf-foto 1.6s var(--ease-out) both}
 .hero__foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(244,237,227,0) 58%,var(--bg-cream) 100%)}
@@ -139,15 +139,16 @@ a{color:inherit;text-underline-offset:.2em}
 
 @media (min-width:900px){
   /* Desktop: texto à esquerda; a Kelly na metade direita da grade (alinhada ao conteúdo, não à borda da tela).
-     Máscara: laterais e base se dissolvem no creme, sem corte reto. */
+     A caixa tem a proporção da foto (nada é cortado) e fica apoiada na base da hero.
+     Máscara: só as pontas das laterais, a base e o topo se dissolvem no creme; os braços dela ficam inteiros. */
   .hero{display:flex;align-items:center;min-height:min(82vh,44rem);padding-block:5rem 6rem}
   .hero__grid{width:100%;margin-top:0}
-  .hero__texto{max-width:min(33rem,47%)}
-  .hero__foto{position:absolute;z-index:-1;top:0;bottom:0;left:auto;right:max(var(--gutter),calc((100% - 72rem) / 2 + var(--gutter)));
-    width:calc((min(100%,72rem) - 2 * var(--gutter)) * .54);height:auto;
-    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 20%,#000 84%,transparent 100%),linear-gradient(0deg,transparent 0,#000 28%);
+  .hero__texto{max-width:min(33rem,45%)}
+  .hero__foto{position:absolute;z-index:-1;top:auto;bottom:0;left:auto;right:max(0px,calc((100% - 72rem) / 2 - 1rem));
+    width:calc(min(100%,72rem) * .58);height:auto;aspect-ratio:604/532;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 92%,transparent 100%),linear-gradient(0deg,transparent 0,#000 30%,#000 94%,transparent 100%);
     -webkit-mask-composite:source-in;
-    mask-image:linear-gradient(90deg,transparent 0,#000 20%,#000 84%,transparent 100%),linear-gradient(0deg,transparent 0,#000 28%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 92%,transparent 100%),linear-gradient(0deg,transparent 0,#000 30%,#000 94%,transparent 100%);
     mask-composite:intersect}
   .hero__foto img{object-position:var(--foto-pos-desktop)}
   .hero__foto::after{content:none}
@@ -190,10 +191,10 @@ a{color:inherit;text-underline-offset:.2em}
 
   <!-- ===================== 1. HERO  (OFERTA: textos marcados mudam por oferta) ===================== -->
   <section class="hero" id="inicio" aria-labelledby="titulo-hero">
-    <!-- Foto da Kelly: img/kelly-hero.webp (recorte 524x532 da arte enviada, sem o logo embutido).
+    <!-- Foto da Kelly: img/kelly-hero.webp (recorte 604x532 da arte enviada, sem o logo embutido).
          As fotos anteriores (hero-*.webp, Pexels) continuam em img/ caso queira voltar. Enquadramento: --foto-pos-* no CSS. -->
     <div class="hero__foto">
-      <img src="img/kelly-hero.webp" width="524" height="532" alt="Kelly Ferreira, advogada" fetchpriority="high" decoding="async">
+      <img src="img/kelly-hero.webp" width="604" height="532" alt="Kelly Ferreira, advogada" fetchpriority="high" decoding="async">
     </div>
     <div class="wrap hero__grid">
       <div class="hero__texto">
