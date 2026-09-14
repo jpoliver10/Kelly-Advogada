@@ -10,8 +10,12 @@ styles.css                   estilos abaixo da dobra
 main.js                      formulário -> planilha, UTMs, Meta Pixel, barra fixa, carta, Lenis, FAQ
 integracao/google-sheets.gs  script do Google que grava os cadastros na planilha
 politica-de-privacidade.html rascunho LGPD (revisar antes de publicar)
-img/kelly-hero.webp          foto da Kelly na hero, celular e desktop (604×532, 26KB)
-img/hero-*.webp              foto anterior das mãos (Pexels), fora de uso; pode apagar se a foto da Kelly ficar
+img/kelly-fundo-1671.webp    fundo da hero, desktop grande (1671×941, 63KB)
+img/kelly-fundo-1100.webp    fundo da hero, desktop (1100×619, 34KB)
+img/kelly-fundo-m.webp       recorte do rosto para o celular (720×400, 11KB)
+img/kelly.webp               retrato da seção "Quem vai acompanhar o seu caso" (800×1000, 37KB)
+img/kelly-hero.webp          versão anterior da hero (arte com fundo creme), fora de uso
+img/hero-*.webp              primeira hero (mãos, Pexels), fora de uso
 img/favicon.svg              favicon provisório (monograma KF)
 img/apple-touch-icon.png     ícone iOS provisório
 img/og-image.png             imagem de compartilhamento 1200×630
@@ -125,15 +129,15 @@ Se mudar o título ou o corpo do hero, confira em 360×640 se o botão "Pedir co
 
 ## Foto da hero
 
-Foto da própria Kelly, tirada da arte enviada pelo escritório (724×532). No recorte `img/kelly-hero.webp`, o logo embutido foi apagado (o logo já está no cabeçalho), o creme do fundo foi acertado para `#F4EDE3` e a borda esquerda foi cortada em x=120 (sobra campo dos dois lados dela).
+Arte enviada pelo escritório (1671×941): a Kelly num campo de lavoura, com trabalhadores desfocados ao fundo. Ela ocupa o fundo inteiro da hero (`img/kelly-fundo-*.webp`).
 - **Celular:** faixa no topo da hero, com o título subindo sobre o fim esmaecido da foto.
-- **Desktop:** a foto tem a altura inteira da hero (do topo à base) e começa logo depois do texto, recuando 14% da própria largura. Assim, só o campo esmaecido da esquerda passa por trás da ponta do texto e a foto aparece inteira nas laterais. Só as laterais e a base se dissolvem no creme (máscara em degradê); o topo fica como está. Abaixo de ~1200px de largura, o braço direito dela encosta na borda da tela.
+- **Desktop:** a foto cobre o fundo inteiro da hero, com a Kelly à direita. Um véu creme fica só atrás do texto, para dar contraste, e some logo depois da coluna do texto (`--texto-fim` no CSS). Na base, a foto se dissolve no creme da seção seguinte.
 - **Entrada:** ao carregar, a foto "assenta" devagar (escala e leve subida, 1,6s). Só usa transform, então não atrasa o LCP, e fica desligada para quem pede menos movimento.
 
-**Resolução:** a arte tem só 532px de altura e, no desktop, aparece ampliada cerca de 1,4×. Para ficar nítida, peça o arquivo original em alta (ideal: 1600px de altura ou mais). Depois, rode o mesmo recorte e troque o arquivo.
+**Resolução:** a arte tem 1671px de largura. Em telas de até ~1700px ela aparece sem ampliação; acima disso, fica um pouco suave.
 
 Para trocar:
-1. Gere um novo `kelly-hero.webp` (fundo creme `#F4EDE3`, sem logo) e atualize `width`/`height` no `<img>`.
+1. Gere `kelly-fundo-1671.webp` e `kelly-fundo-1100.webp` (a arte inteira) e `kelly-fundo-m.webp` (recorte 720×400 do rosto), e atualize `width`/`height` no `<img>`.
 2. Ajuste `--foto-pos-mobile` e `--foto-pos-desktop` no CSS do `<head>`.
 3. Confira em 360×640 se o botão da hero continua na primeira tela.
 
@@ -201,10 +205,10 @@ Chrome via DevTools Protocol, servidor local, celular 360×640, rede **Slow 4G d
 
 | Métrica | Rodada 1 (fria) | Rodada 2 | Rodada 3 | Meta |
 |---|---|---|---|---|
-| LCP (elemento: foto da hero) | 2,00s | 1,65s | 1,68s | < 2,0s |
-| CLS | 0 | 0,0008 | 0 | < 0,05 |
+| LCP (elemento: foto da hero) | 2,09s | 1,62s | 1,62s | < 2,0s |
+| CLS | 0 | 0 | 0 | < 0,05 |
 
-A primeira rodada, com conexões frias, fica no limite da meta (entre 2,00s e 2,06s nas medições). O peso total da primeira tela é de ~105KB. Em produção, some o TTFB do servidor (~100 a 300ms numa CDN).
+A primeira rodada, com conexões frias, passa um pouco da meta (entre 2,09s e 2,24s nas medições com a foto de fundo da hero); as seguintes ficam em ~1,6s. O peso total da primeira tela no celular é de ~92KB. Em produção, some o TTFB do servidor (~100 a 300ms numa CDN).
 
 **Peso transferido no celular:** ~95KB no total, somando HTML 10,1KB, CSS 4,1KB, JS 5,8KB, fontes ~57KB, foto 15KB e o CSS do Google Fonts ~5KB (valores compactados).
 - **Com o Meta Pixel ligado:** +~90KB, baixados depois do carregamento.

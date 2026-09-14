@@ -22,8 +22,9 @@
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 
-<!-- Foto da hero: baixa antes de tudo (é o maior elemento da primeira tela). -->
-<link rel="preload" as="image" href="img/kelly-hero.webp" type="image/webp" fetchpriority="high">
+<!-- Foto da hero: baixa antes de tudo (é o maior elemento da primeira tela). Celular recebe só o recorte do rosto. -->
+<link rel="preload" as="image" href="img/kelly-fundo-m.webp" type="image/webp" media="(max-width: 899px)" fetchpriority="high">
+<link rel="preload" as="image" imagesrcset="img/kelly-fundo-1100.webp 1100w, img/kelly-fundo-1671.webp 1671w" imagesizes="100vw" type="image/webp" media="(min-width: 900px)" fetchpriority="high">
 
 <!-- Fontes: carregadas sem bloquear a renderização. Fallbacks com métrica ajustada no CSS abaixo evitam salto de layout. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -102,9 +103,9 @@ a{color:inherit;text-underline-offset:.2em}
 
 /* Hero */
 .hero{position:relative;isolation:isolate;padding-block:0 3rem}
-/* Foto da Kelly (arte do escritório, recortada sem o logo; o creme do fundo foi acertado para #F4EDE3).
-   Celular: faixa acima do título, que sobe um pouco sobre o fim esmaecido da foto. */
-.hero{--foto-pos-mobile:56% 14%;--foto-pos-desktop:50% 100%}
+/* Fundo da hero: a Kelly num campo de lavoura (arte do escritório).
+   Celular: recorte do rosto numa faixa acima do título, que sobe um pouco sobre o fim esmaecido da foto. */
+.hero{--foto-pos-mobile:50% 30%;--foto-pos-desktop:72% 35%}
 .hero__foto{position:relative;height:clamp(12.5rem,48vw,20rem);overflow:hidden;pointer-events:none}
 .hero__foto img{width:100%;height:100%;object-fit:cover;object-position:var(--foto-pos-mobile);transform-origin:50% 100%;animation:kf-foto 1.6s var(--ease-out) both}
 .hero__foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(244,237,227,0) 58%,var(--bg-cream) 100%)}
@@ -138,22 +139,18 @@ a{color:inherit;text-underline-offset:.2em}
 @media (max-width:419px){.btn{padding-inline:1rem;font-size:clamp(.9375rem,4.1vw,1.0625rem)}}
 
 @media (min-width:900px){
-  /* Desktop: texto à esquerda; a Kelly logo depois dele, com a altura inteira da hero (do topo à base).
-     A foto aparece inteira na largura: a caixa começa onde o texto acaba e recua 14% da própria largura,
-     então só o campo esmaecido da esquerda passa por trás da ponta do texto. O que sobrar à direita some na borda da tela.
-     Máscara: só as laterais e a base se dissolvem no creme; o topo fica como está. */
-  .hero{display:flex;align-items:center;min-height:min(82vh,44rem);padding-block:5rem 6rem;overflow:hidden}
+  /* Desktop: a foto ocupa o fundo inteiro da hero, com a Kelly à direita.
+     Véu creme só atrás do texto (até --texto-fim, onde a coluna do texto acaba) para dar contraste;
+     depois ele some e a foto aparece limpa. Na base, a foto se dissolve no creme da seção seguinte. */
+  .hero{--texto-fim:calc(max(var(--gutter),(100% - 72rem) / 2 + var(--gutter)) + min(34rem,(min(100%,72rem) - 2 * var(--gutter)) * .48));
+    display:flex;align-items:center;min-height:min(82vh,44rem);padding-block:5rem 6rem;overflow:hidden}
   .hero__grid{width:100%;margin-top:0}
-  .hero__texto{max-width:min(33rem,45%)}
-  .hero__foto{position:absolute;z-index:-1;top:0;bottom:0;right:auto;height:auto;
-    left:calc(max(var(--gutter),(100% - 72rem) / 2 + var(--gutter)) + min(33rem,(min(100%,72rem) - 2 * var(--gutter)) * .45) + 1.5rem);
-    transform:translateX(-14%);
-    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 92%,transparent 100%),linear-gradient(0deg,transparent 0,#000 24%);
-    -webkit-mask-composite:source-in;
-    mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 92%,transparent 100%),linear-gradient(0deg,transparent 0,#000 24%);
-    mask-composite:intersect}
-  .hero__foto img{width:auto;height:100%;max-width:none;object-position:var(--foto-pos-desktop)}
-  .hero__foto::after{content:none}
+  .hero__texto{max-width:min(34rem,48%)}
+  .hero__foto{position:absolute;z-index:-1;inset:0;height:auto}
+  .hero__foto img{object-position:var(--foto-pos-desktop)}
+  .hero__foto::after{background:
+    linear-gradient(90deg,rgba(244,237,227,.93) 0,rgba(244,237,227,.88) calc(var(--texto-fim) - 3rem),rgba(244,237,227,0) calc(var(--texto-fim) + 10rem)),
+    linear-gradient(0deg,var(--bg-cream) 0,rgba(244,237,227,0) 16%)}
 }
 
 /* Barra fixa "Pedir contato" (celular) */
@@ -193,10 +190,15 @@ a{color:inherit;text-underline-offset:.2em}
 
   <!-- ===================== 1. HERO  (OFERTA: textos marcados mudam por oferta) ===================== -->
   <section class="hero" id="inicio" aria-labelledby="titulo-hero">
-    <!-- Foto da Kelly: img/kelly-hero.webp (recorte 604x532 da arte enviada, sem o logo embutido).
-         As fotos anteriores (hero-*.webp, Pexels) continuam em img/ caso queira voltar. Enquadramento: --foto-pos-* no CSS. -->
+    <!-- Fundo da hero: a Kelly no campo (img/kelly-fundo-*.webp). O celular recebe só o recorte do rosto (kelly-fundo-m.webp).
+         Versões anteriores continuam em img/: kelly-hero.webp (arte com fundo creme) e hero-*.webp (mãos, Pexels).
+         Enquadramento: --foto-pos-* no CSS. -->
     <div class="hero__foto">
-      <img src="img/kelly-hero.webp" width="604" height="532" alt="Kelly Ferreira, advogada" fetchpriority="high" decoding="async">
+      <picture>
+        <source media="(max-width: 899px)" srcset="img/kelly-fundo-m.webp" width="720" height="400">
+        <img src="img/kelly-fundo-1100.webp" srcset="img/kelly-fundo-1100.webp 1100w, img/kelly-fundo-1671.webp 1671w" sizes="100vw"
+             width="1671" height="941" alt="Kelly Ferreira, advogada, num campo de lavoura" fetchpriority="high" decoding="async">
+      </picture>
     </div>
     <div class="wrap hero__grid">
       <div class="hero__texto">
