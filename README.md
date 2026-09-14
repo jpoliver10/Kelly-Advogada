@@ -32,7 +32,7 @@ Procure por `[PREENCHER]` em `index.html` e `politica-de-privacidade.html`.
 | O quê | Onde |
 |---|---|
 | **URL da planilha** | `index.html`, bloco `window.KF`, campo `planilhaUrl`. Ver "Planilha do Google" abaixo. |
-| **Número da OAB** | `index.html`: hero, "Quem vai acompanhar o seu caso" e rodapé. Também na política. Confira se a seccional é PE. |
+| **Número da OAB** | `index.html`: "Quem vai acompanhar o seu caso" e rodapé. Também na política. Confira se a seccional é PE. |
 | **Nome completo** | Hoje está "Kelly Ferreira". Se o nome na carteira da OAB for mais longo, use o completo no rodapé e na apresentação. |
 | **Domínio** | Localize e substitua `SEU-DOMINIO.com.br` em `index.html` (canonical, og:url, og:image). |
 | **Meta Pixel ID** | `window.KF.pixelId`. Vazio = Pixel desligado. |
@@ -131,7 +131,7 @@ Se mudar o título ou o corpo do hero, confira em 360×640 se o botão "Pedir co
 
 Arte enviada pelo escritório (2728×1536): a Kelly num campo de lavoura ao nascer do sol, com trabalhadores desfocados ao fundo. Ela ocupa o fundo inteiro da hero (`img/kelly-fundo-*.webp`).
 - **Celular:** faixa no topo da hero, com o título subindo sobre o fim esmaecido da foto.
-- **Desktop:** a foto cobre o fundo inteiro da hero, sem véu nem degradê, com a Kelly à direita e o texto por cima. A altura da hero segue a proporção da foto, limitada à altura da tela, para ela aparecer quase inteira. Para a leitura, o texto tem só um halo creme justo às letras, e o corpo, a nota e a linha da OAB usam a cor do título. A base da hero é um corte inclinado (SVG `.hero__corte`), com uma faixa dourada `#A8894F` entre a foto e o bege da seção seguinte. No celular o corte não aparece, porque lá a foto já termina esmaecendo.
+- **Desktop:** a foto cobre o fundo inteiro da hero, sem véu nem degradê, com a Kelly à direita e o texto por cima. A altura da hero segue a proporção da foto, limitada à altura da tela, para ela aparecer quase inteira. Para a leitura, o texto tem só um halo creme justo às letras, e o corpo do texto usa a cor do título. A hero termina no botão "Pedir contato da Kelly" (sem nota nem linha da OAB, que ficam na apresentação e no rodapé). A base da hero é um corte inclinado (SVG `.hero__corte`), com uma faixa dourada `#A8894F` entre a foto e o bege da seção seguinte. No celular o corte não aparece, porque lá a foto já termina esmaecendo.
 - **Entrada:** ao carregar, a foto "assenta" devagar (escala e leve subida, 1,6s). Só usa transform, então não atrasa o LCP, e fica desligada para quem pede menos movimento.
 
 **Resolução:** a arte original tem 2728px de largura; o site usa versões de 1280 e 2000px (o navegador escolhe pela largura da tela) e fica nítido em qualquer monitor comum.
@@ -161,7 +161,7 @@ Sempre que mudar o `styles.css`, aumente o número em `styles.css?v=2` (no `inde
 
 ## Checklist de compliance (Provimento 205/2021 CFOAB) e LGPD · para a Kelly aprovar
 
-- [ ] Nome completo e número da OAB corretos no hero, na apresentação e no rodapé
+- [ ] Nome completo e número da OAB corretos na apresentação ("Quem vai acompanhar o seu caso") e no rodapé
 - [ ] Nenhuma frase promete, garante ou sugere resultado
 - [ ] Nenhum termo mercantil: promoção, desconto, oferta, vagas, condição especial, consulta grátis
 - [ ] Sem depoimentos, prints de conversa, valores recebidos ou casos identificáveis; a foto da hero é da própria Kelly e as pessoas ao fundo não são identificáveis
